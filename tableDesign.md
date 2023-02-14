@@ -2,7 +2,7 @@
 
 
 ## usersテーブル
-
+### なりすまし防止のためニックネームのユニークはtrue
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | email                | string     | null: false, uniqueness: true  |
@@ -18,6 +18,21 @@
 | address              | string     | null: false                    |
 | building             | string     |                                |
 
+###　Association
+
+- has_many :illusts
+- has_many :illust_comments
+- has_many :illust_likes
+- has_many :novels
+- has_many :novel_comments
+- has_many :novel_likes
+- has_many :items
+- has_many :item_comments
+- has_many :item_likes
+- has_many :orders
+
+
+
 ## illustsテーブル
 
 | Column               | Type       | Options                        |
@@ -28,6 +43,16 @@
 | application          | string     | null: false,                   |
 | prompt               | text       |                                |
 
+###　Association
+
+- has_many :illust_comments
+- has_many :illust_likes
+- has_many :illust_tag_relations
+- has_many :illust_tags, through: :illust_tag_relations
+- has_many_attached :images
+- belongs_to :user
+
+
 
 ## illust_commentsテーブル
 
@@ -37,6 +62,13 @@
 | illust               | references | null: false, foreign_key: true |
 | content              | text       | null: false,                   |
 
+###　Association
+
+- belongs_to :user
+- belongs_to :illust
+
+
+
 ## illust_tagsテーブル
 
 | Column               | Type       | Options                        |
@@ -45,12 +77,26 @@
 | illust               | references | null: false, foreign_key: true |
 | name                 | string     |                                |
 
+###　Association
+
+- has_many :illust_tag_relations
+- has_many :illust, through: :illust_tag_relations
+
+
+
 ## illust_likesテーブル
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | illust               | references | null: false, foreign_key: true |
+
+###　Association
+
+- belongs_to :user
+- belongs_to :illust
+
+
 
 ## novelsテーブル
 
@@ -61,6 +107,17 @@
 | content              | string     | null: false,                   |
 | application          | string     | null: false,                   |
 
+###　Association
+
+- has_many :novel_comments
+- has_many :novel_likes
+- has_many :novel_tag_relations
+- has_many :novel_tags, through: :novel_tag_relations
+- has_many_attached :images
+- belongs_to :user
+
+
+
 ## novel_commentsテーブル
 
 | Column               | Type       | Options                        |
@@ -68,6 +125,13 @@
 | user                 | references | null: false, foreign_key: true |
 | novel                | references | null: false, foreign_key: true |
 | content              | text       | null: false,                   |
+
+###　Association
+
+- belongs_to :user
+- belongs_to :novel
+
+
 
 ## novel_tagsテーブル
 
@@ -77,12 +141,26 @@
 | novel                | references | null: false, foreign_key: true |
 | name                 | string     |                                |
 
+###　Association
+
+- has_many :novel_tag_relations
+- has_many :novel, through: :illust_tag_relations
+
+
+
 ## novel_likesテーブル
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | novel                | references | null: false, foreign_key: true |
+
+###　Association
+
+- belongs_to :user
+- belongs_to :novel
+
+
 
 ## itemsテーブル
 
@@ -94,6 +172,17 @@
 | description          | text       | null: false,                   |
 | application          | string     | null: false,                   |
 
+###　Association
+
+- has_many :item_comments
+- has_many :item_likes
+- has_many :item_tag_relations
+- has_many :item_tags, through: :item_tag_relations
+- has_many_attached :images
+- belongs_to :user
+
+
+
 ## item_commentsテーブル
 
 | Column               | Type       | Options                        |
@@ -101,6 +190,13 @@
 | user                 | references | null: false, foreign_key: true |
 | item                 | references | null: false, foreign_key: true |
 | content              | text       | null: false,                   |
+
+###　Association
+
+- belongs_to :user
+- belongs_to :item
+
+
 
 ## item_tagsテーブル
 
@@ -110,12 +206,24 @@
 | item                 | references | null: false, foreign_key: true |
 | name                 | string     |                                |
 
+###　Association
+
+- has_many :item_tag_relations
+- has_many :item, through: :illust_tag_relations
+
+
+
 ## item_likesテーブル
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | item                 | references | null: false, foreign_key: true |
+
+###　Association
+
+- belongs_to :user
+- belongs_to :item
 
 
 ## ordersテーブル
@@ -124,3 +232,8 @@
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | item                 | references | null: false, foreign_key: true |
+
+###　Association
+
+belongs_to :user
+belongs_to :item
