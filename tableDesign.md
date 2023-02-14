@@ -75,7 +75,7 @@
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | illust               | references | null: false, foreign_key: true |
-| name                 | string     |                                |
+| name                 | string     | null:false, uniqueness:   true |
 
 ###　Association
 
@@ -139,7 +139,7 @@
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | novel                | references | null: false, foreign_key: true |
-| name                 | string     |                                |
+| name                 | string     | null:false, uniqueness:   true |
 
 ###　Association
 
@@ -204,7 +204,7 @@
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | item                 | references | null: false, foreign_key: true |
-| name                 | string     |                                |
+| name                 | string     | null:false, uniqueness:   true |
 
 ###　Association
 
