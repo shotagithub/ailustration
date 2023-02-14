@@ -13,3 +13,105 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /* リセットCSS */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+ul,
+li,
+h1,
+h2,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
+  color: #3b4043;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: #3b4043;
+}
+
+/* header */
+
+.header {
+  background-color: #cfefff;
+  margin-bottom: 20px;
+  padding: 20px 0;
+
+}
+.inner {
+  width: 1024px;
+  margin: 0 auto;
+}
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.registration {
+  margin: auto;
+}
+
+.logo{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nickname {
+  font-size: 20px;
+}
+.menu_btn{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #bd49be;;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #bd49be solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+.menu_btn:hover{
+  color: #fff;
+  background: #87CEFA;
+}
+
+.menu_logout{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  border: 1px #bd49be solid;
+  font-size: 0.8em;
+  color: #bd49be;
+  text-decoration: none;
+  user-select: none;
+}
+.menu_logout:hover{
+  opacity: 0.5;
+}
+
+/* main */
+
+.nickname {
+  margin-right: 100px;
+}

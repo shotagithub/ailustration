@@ -11,6 +11,33 @@
 
   <body>
     <header class="header">
+      <div class="inner">
+        <div class="menu">
+          <div class="menu_left">
+            <%= link_to "AiLustRation", root_path, class: :logo %>
+          </div>
+          <%# ログイン %>
+          <%# 新規登録ページにいる%>
+          <% if user_signed_in? %>
+            <div class="manu__right">
+              <%= link_to "#{current_user.nickname}さん", root_path, class: :nickname %>
+              <%= link_to "検索", root_path, class: :menu_btn %>
+              <%= link_to "投稿・出品", root_path, class: :menu_btn %>
+              <%= link_to "お気に入り", root_path, class: :menu_btn %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :menu_logout %>
+            </div>
+          
+          <% elsif current_page?("/users/sign_up") %> 
+          <%# ログインしていない %>
+          <% else %>
+            <div class="menu_right">
+              <%= link_to "新規登録", new_user_registration_path, class: :menu_btn %>
+              <%= link_to "ログイン", new_user_session_path, class: :menu_btn %>
+            </div>
+          <%# ログイン分岐終了 %>
+          <% end %>
+        </div>
+      </div>
     </header>
     <%= yield %>
   </body>
