@@ -4,7 +4,6 @@
     <title>Ailustration</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -17,17 +16,23 @@
             <%= link_to "AiLustRation", root_path, class: :logo %>
           </div>
           <%# ログイン %>
-          <%# 新規登録ページにいる%>
           <% if user_signed_in? %>
             <div class="manu__right">
               <%= link_to "#{current_user.nickname}さん", root_path, class: :nickname %>
-              <%= link_to "検索", root_path, class: :menu_btn %>
-              <%= link_to "投稿・出品", root_path, class: :menu_btn %>
+              <li class = "menu_btn" id="menuBtn">
+                投稿・出品
+                <ul class="menu_lists hidden" id="menuPullDown">
+                  <li><%= link_to "イラストを投稿する", root_path %></li>
+                  <li><%= link_to "小説を投稿する", root_path %></li>
+                  <li><%= link_to "商品を出品する", root_path %></li>
+                </ul>
+              </li>
               <%= link_to "お気に入り", root_path, class: :menu_btn %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :menu_logout %>
             </div>
-          
+          <%# 新規登録ページにいる%>
           <% elsif current_page?("/users/sign_up") %> 
+          <%= link_to "ログイン", new_user_session_path, class: :menu_btn %>
           <%# ログインしていない %>
           <% else %>
             <div class="menu_right">

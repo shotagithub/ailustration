@@ -1,8 +1,36 @@
 <%# ログイン %>
-<% if user_signed_in? %>
-  <h1>なうログイン</h1>
-  <%# 未ログイン %>
-  <% else %>
-  <h1>ログインしてない</h1>
-<%# ログイン分岐終了 %>
-<% end %>
+<div class = "main_wrapper">
+  <% if user_signed_in? %>
+    <div class = "main_top">
+      <div class = "search_form">
+        <div>
+          <%= form_with(url: root_path, local: true, method: :get, class: "search-forms") do |f| %>
+            <%= f.text_field :keyword, placeholder: "検索する", class: "search-input" %>
+            <%= f.submit "検索", class: "search-btn" %>
+          <% end %>
+        </div>
+      </div>
+      <div class = "select_ber">
+        <div class = "select_btn">
+          <%= link_to "イラスト", root_path, class: :illust_btn %>
+          <%= link_to "小説", root_path, class: :novel_btn %>
+          <%= link_to "商品", root_path, class: :item_btn %>
+        </div>
+      </div>
+    </div>
+    <div class = main_center>
+      <div class = "main_contents">
+        <div class = "new_posts">
+        new!
+        </div>
+        <div class = "ranking">
+        ranking
+        <div>
+      </div>
+    </div>
+    <%# 未ログイン %>
+    <% else %>
+    <h1>アプリ紹介画面表示</h1>
+  <%# ログイン分岐終了 %>
+  <% end %>
+</div>

@@ -80,11 +80,14 @@ a {
 
 .nickname {
   font-size: 20px;
+  margin-right: 100px;
 }
+
 .menu_btn{
+  position: relative;
   display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
+  padding: 4px 16px;
+  font-size: 16px;
   color: #bd49be;;
   text-decoration: none;
   user-select: none;
@@ -92,16 +95,27 @@ a {
   border-radius: 3px;
   transition: 0.4s ease;
 }
+
 .menu_btn:hover{
   color: #fff;
   background: #87CEFA;
 }
 
+.menu_lists {
+  top: 105%;
+  left: -15%;
+  text-align: center;
+  white-space: nowrap;
+  position: absolute;
+  color: #000000;
+  background-color: #aa9efc;
+}
+
 .menu_logout{
   display: inline-block;
-  padding: 0.4em 1.6em;
+  padding: 4px 16px;
   border: 1px #bd49be solid;
-  font-size: 0.8em;
+  font-size: 16px;
   color: #bd49be;
   text-decoration: none;
   user-select: none;
@@ -110,8 +124,93 @@ a {
   opacity: 0.5;
 }
 
+.hidden{
+  display: none;
+}
+
 /* main */
 
-.nickname {
-  margin-right: 100px;
+.main_wrapper{
+  height: 100%;
+  width: 100%;
+}
+
+/* main_top */
+.main_top{
+  height: 30%;
+}
+
+.search_form{
+  display: flex;
+  justify-content: center;
+}
+
+.select_btn{
+  display: flex;
+  justify-content: center;
+}
+
+.illust_btn{
+  display: inline-block;
+  width: 350px;
+  height: 20px;
+  border-bottom: 20px solid #b2e1ff ;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  padding: 4px 16px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.novel_btn{
+  display: inline-block;
+  width: 350px;
+  height: 20px;
+  border-bottom: 20px solid #aeffbb ;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  padding: 4px 16px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.item_btn{
+  display: inline-block;
+  width: 350px;
+  height: 20px;
+  border-bottom: 20px solid #ffbafa ;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  padding: 4px 16px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+/* main_content */
+.main_center{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main_contents{
+  height: 1000px;
+  width: 1050px;
+  flex-direction:column;
+  align-items: center;
+  background-color: #eff9ff;
+}
+
+.new_posts{
+  display: flex;
+  justify-content: center;
+}
+
+.ranking{
+  display: flex;
+  justify-content: center;
 }
