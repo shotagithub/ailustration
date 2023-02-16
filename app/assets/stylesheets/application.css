@@ -210,7 +210,47 @@ a {
   justify-content: center;
 }
 
+.image-content{
+  padding-top: 50px;
+}
+
+.thumbnail{
+  height: 100px;
+  width: 100px;
+}
+
 .ranking{
   display: flex;
   justify-content: center;
+}
+
+/* post form */
+.form_main{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.form_main form{
+  margin: auto;
+}
+
+.indispensable{
+  color: crimson;
+}
+
+
+/* illust show */
+
+.other-images {
+  display: flex;
+}
+
+.other-image {
+  margin-right: 10px;
+}
+
+.main-image {
+  height: 400px;
+  width: 400px;
 }

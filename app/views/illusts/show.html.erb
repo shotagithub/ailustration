@@ -1,0 +1,19 @@
+<h3>詳細ページ</h3>
+<div class="posted-content">
+  <%= image_tag @illust.images[0], class: "main-image" %><br>
+  <details open class="other-images">
+  <summary>イラストを全て表示</summary>
+    <% @illust.images[1..-1].each do |image| %>
+      <div class="other-image">
+        <%= image_tag image %>
+      </div>
+    <%end%>
+  </details>
+  <%= link_to '編集', root_path(@illust.id)%>
+  <%= link_to '削除', root_path(@illust.id)%>
+  <%= @illust.title%><br>
+  <%= @illust.description%>
+  <%= @illust.application%>
+  <%= @illust.prompt%>
+
+</div>

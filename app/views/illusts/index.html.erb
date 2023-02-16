@@ -21,7 +21,15 @@
     <div class = main_center>
       <div class = "main_contents">
         <div class = "new_posts">
-        new!
+        <p>new!</p>
+        <% @illust.each do |illust| %>
+          <%= link_to illust_path(illust.id) do %>
+            <div class = "image-content">
+              <%= image_tag illust.images[0], class: "thumbnail" %><br>
+              <%= illust.title %>
+            </div>
+          <% end %>
+        <% end %>
         </div>
         <div class = "ranking">
         ranking

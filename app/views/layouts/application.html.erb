@@ -15,14 +15,23 @@
           <div class="menu_left">
             <%= link_to "AiLustRation", root_path, class: :logo %>
           </div>
-          <%# ログイン %>
-          <% if user_signed_in? %>
+
+          <%# 新規登録ページにいる%>
+          <% if current_page?("/users/sign_up") %> 
+          <%= link_to "ログイン", new_user_session_path, class: :menu_btn %>
+
+          <%# ログインページにいる%>
+          <% elsif current_page?("/users/sign_in") %> 
+          <%= link_to "新規登録", new_user_registration_path, class: :menu_btn %>
+
+          <%# ログイン中 %>
+          <% elsif user_signed_in? %>
             <div class="manu__right">
               <%= link_to "#{current_user.nickname}さん", root_path, class: :nickname %>
               <li class = "menu_btn" id="menuBtn">
                 投稿・出品
                 <ul class="menu_lists hidden" id="menuPullDown">
-                  <li><%= link_to "イラストを投稿する", root_path %></li>
+                  <li><%= link_to "イラストを投稿する", new_illust_path %></li>
                   <li><%= link_to "小説を投稿する", root_path %></li>
                   <li><%= link_to "商品を出品する", root_path %></li>
                 </ul>
@@ -30,9 +39,7 @@
               <%= link_to "お気に入り", root_path, class: :menu_btn %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :menu_logout %>
             </div>
-          <%# 新規登録ページにいる%>
-          <% elsif current_page?("/users/sign_up") %> 
-          <%= link_to "ログイン", new_user_session_path, class: :menu_btn %>
+
           <%# ログインしていない %>
           <% else %>
             <div class="menu_right">
