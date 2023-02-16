@@ -225,10 +225,11 @@ a {
 }
 
 /* post form */
-.form_main{
+.form-wrapper{
+  width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 5vh;
+  margin: 2%;
 }
 
 .form_main form{
@@ -237,6 +238,15 @@ a {
 
 .indispensable{
   color: crimson;
+}
+
+.preview{
+  display: flex;
+}
+
+.preview-image{
+  height: 100px;
+  width: 100px;
 }
 
 

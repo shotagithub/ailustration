@@ -1,7 +1,7 @@
 <h3>詳細ページ</h3>
 <div class="posted-content">
   <%= image_tag @illust.images[0], class: "main-image" %><br>
-  <details open class="other-images">
+  <details class="other-images">
   <summary>イラストを全て表示</summary>
     <% @illust.images[1..-1].each do |image| %>
       <div class="other-image">
@@ -9,8 +9,10 @@
       </div>
     <%end%>
   </details>
-  <%= link_to '編集', root_path(@illust.id)%>
-  <%= link_to '削除', root_path(@illust.id)%>
+  <% if user_signed_in? && current_user.id == @illust.user_id %>
+      <%= link_to "商品の編集", root_path, method: :get, class: "edit-btn" %>
+      <%= link_to "削除", illust_path(@illust.id), method: :delete, class:"destroy-btn" %>
+  <% end %>
   <%= @illust.title%><br>
   <%= @illust.description%>
   <%= @illust.application%>
