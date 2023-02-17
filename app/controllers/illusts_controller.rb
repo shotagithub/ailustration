@@ -1,6 +1,6 @@
 class IllustsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :destroy]
-  before_action :set_find, only: [:show, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :set_find, only: [:show, :edit, :update, :destroy]
 
   def index
     @illust = Illust.includes(:user).limit(10).order("created_at DESC")
@@ -20,6 +20,18 @@ class IllustsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    @illust.update(illust_params)
+    if @illust.save
+      redirect_to illust_path
+    else
+      render :edit
+    end
   end
 
   def destroy

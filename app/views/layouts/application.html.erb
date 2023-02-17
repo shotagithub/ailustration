@@ -11,40 +11,45 @@
   <body>
     <header class="header">
       <div class="inner">
-        <div class="menu">
-          <div class="menu_left">
+        <div class="nav">
+
+          <div class="nav-left">
             <%= link_to "AiLustRation", root_path, class: :logo %>
           </div>
+          <% if user_signed_in? %>
+            <div class = "nav_center">
+              <%= link_to "#{current_user.nickname}さん", root_path, class: :nickname %>
+            </div>
+          <% end %>
 
           <%# 新規登録ページにいる%>
           <% if current_page?("/users/sign_up") %> 
-          <%= link_to "ログイン", new_user_session_path, class: :menu_btn %>
+          <%= link_to "ログイン", new_user_session_path, class: :nav_btn %>
 
           <%# ログインページにいる%>
           <% elsif current_page?("/users/sign_in") %> 
-          <%= link_to "新規登録", new_user_registration_path, class: :menu_btn %>
+          <%= link_to "新規登録", new_user_registration_path, class: :nav_btn %>
 
           <%# ログイン中 %>
           <% elsif user_signed_in? %>
-            <div class="manu__right">
-              <%= link_to "#{current_user.nickname}さん", root_path, class: :nickname %>
-              <li class = "menu_btn" id="menuBtn">
+            <div class="nav_right">
+              <li class = "nav_btn" id="navBtn">
                 投稿・出品
-                <ul class="menu_lists hidden" id="menuPullDown">
+                <ul class="nav_lists hidden" id="navPullDown">
                   <li><%= link_to "イラストを投稿する", new_illust_path %></li>
                   <li><%= link_to "小説を投稿する", root_path %></li>
                   <li><%= link_to "商品を出品する", root_path %></li>
                 </ul>
               </li>
-              <%= link_to "お気に入り", root_path, class: :menu_btn %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :menu_logout %>
+              <%= link_to "お気に入り", root_path, class: :nav_btn %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav_logout %>
             </div>
 
           <%# ログインしていない %>
           <% else %>
-            <div class="menu_right">
-              <%= link_to "新規登録", new_user_registration_path, class: :menu_btn %>
-              <%= link_to "ログイン", new_user_session_path, class: :menu_btn %>
+            <div class="nav_right">
+              <%= link_to "新規登録", new_user_registration_path, class: :nav_btn %>
+              <%= link_to "ログイン", new_user_session_path, class: :nav_btn %>
             </div>
           <%# ログイン分岐終了 %>
           <% end %>

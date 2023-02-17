@@ -6,16 +6,21 @@
     <% @illust.images[1..-1].each do |image| %>
       <div class="other-image">
         <%= image_tag image %>
-      </div>
+      </div><br>
     <%end%>
   </details>
   <% if user_signed_in? && current_user.id == @illust.user_id %>
-      <%= link_to "商品の編集", root_path, method: :get, class: "edit-btn" %>
+      <%= link_to "商品の編集", edit_illust_path(@illust.id), method: :get, class: "edit-btn" %>
       <%= link_to "削除", illust_path(@illust.id), method: :delete, class:"destroy-btn" %>
   <% end %>
   <%= @illust.title%><br>
+
   <%= @illust.description%>
+
   <%= @illust.application%>
+
+  <% if @illust.prompt.present? %>
   <%= @illust.prompt%>
+  <% end %>
 
 </div>

@@ -2,6 +2,9 @@
 <div class = "main_wrapper">
   <% if user_signed_in? %>
     <div class = "main_top">
+      <div class = "advertisement">
+          広告を設置
+      </div>
       <div class = "search_form">
         <div>
           <%= form_with(url: root_path, local: true, method: :get, class: "search-forms") do |f| %>
@@ -20,20 +23,30 @@
     </div>
     <div class = main_center>
       <div class = "main_contents">
-        <div class = "new_posts">
-        <p>new!</p>
-        <% @illust.each do |illust| %>
-          <%= link_to illust_path(illust.id) do %>
-            <div class = "image-content">
-              <%= image_tag illust.images[0], class: "thumbnail" %><br>
-              <%= illust.title %>
-            </div>
-          <% end %>
-        <% end %>
+        <div class = "new_title">
+        new!
         </div>
-        <div class = "ranking">
+        <ul class = "new_posts">
+              <% @illust.each do |illust| %>
+                <li class = main_content>
+                  <%= link_to illust_path(illust.id) do %>
+                    <%= image_tag illust.images[0], class: "thumbnail" %><br>
+                  <% end %>
+                </li>
+              <% end %>
+        </ul>
+        <div class = "ranking_title">
         ranking
-        <div>
+        </div>
+        <div class = "ranking_posts">
+            <% @illust.each do |illust| %>
+              <div class = main_content>
+                <%= link_to illust_path(illust.id) do %>
+                  <%= image_tag illust.images[0], class: "thumbnail" %><br>
+                <% end %>
+              </div>
+            <% end %>
+        </div>
       </div>
     </div>
     <%# 未ログイン %>

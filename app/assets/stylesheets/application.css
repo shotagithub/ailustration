@@ -51,28 +51,28 @@ a {
   color: #3b4043;
 }
 
+
+
+
+
+
 /* header */
 
 .header {
-  background-color: #cfefff;
+  width: 100%;
+  background-color: #cfebff;
   margin-bottom: 20px;
-  padding: 20px 0;
-
+  padding: 15px;
 }
 .inner {
-  width: 1024px;
-  margin: 0 auto;
-}
-.menu {
   width: 100%;
+}
+.nav {
+  margin: 0 auto;
+  width: 96%;
   display: flex;
   justify-content: space-between;
 }
-
-.registration {
-  margin: auto;
-}
-
 .logo{
   font-size: 20px;
   font-weight: bold;
@@ -83,7 +83,7 @@ a {
   margin-right: 100px;
 }
 
-.menu_btn{
+.nav_btn{
   position: relative;
   display: inline-block;
   padding: 4px 16px;
@@ -96,22 +96,22 @@ a {
   transition: 0.4s ease;
 }
 
-.menu_btn:hover{
+.nav_btn:hover{
   color: #fff;
   background: #87CEFA;
 }
 
-.menu_lists {
+.nav_lists {
   top: 105%;
   left: -15%;
   text-align: center;
   white-space: nowrap;
   position: absolute;
-  color: #000000;
-  background-color: #aa9efc;
+  color: #ffffff;
+  background-color: #cfebff;
 }
 
-.menu_logout{
+.nav_logout{
   display: inline-block;
   padding: 4px 16px;
   border: 1px #bd49be solid;
@@ -120,13 +120,18 @@ a {
   text-decoration: none;
   user-select: none;
 }
-.menu_logout:hover{
+.nav_logout:hover{
   opacity: 0.5;
 }
 
 .hidden{
   display: none;
 }
+
+
+
+
+
 
 /* main */
 
@@ -140,9 +145,16 @@ a {
   height: 30%;
 }
 
+.advertisement{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 .search_form{
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .select_btn{
@@ -205,9 +217,36 @@ a {
   background-color: #eff9ff;
 }
 
-.new_posts{
+.new_title{
   display: flex;
   justify-content: center;
+  font-size: 30px;
+}
+
+.new_posts{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px; 
+}
+
+.ranking_title{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.ranking_posts{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px; 
+}
+
+.main_content{
+  padding: 5px;
 }
 
 .image-content{
@@ -215,14 +254,10 @@ a {
 }
 
 .thumbnail{
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
 }
 
-.ranking{
-  display: flex;
-  justify-content: center;
-}
 
 /* post form */
 .form-wrapper{
