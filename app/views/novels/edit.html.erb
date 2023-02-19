@@ -1,0 +1,46 @@
+<div class="form_wrapper">
+  <%= form_with model:@novel, id: 'new_post',local: true do |f| %>
+    <%# top %>
+    <div class = "form_top">
+      <div class="title_form">小説の情報を入力してください</div>
+    </div>
+    <%# title %>
+    <div>
+      <div class = "messages">
+        タイトル
+        <span class="indispensable">　必須</span>
+      </div>
+        <div class = "message_upload">
+          <%= f.text_area :title, class:"post_text", id:"post_title", placeholder:"必須 20文字まで", maxlength:"20" %>
+        </div>
+      </div>
+    </div>
+    <%# app %>
+    <div>
+      <div class = "messages">
+        使用したアプリケーション
+        <span class="indispensable">　必須</span>
+      </div>
+        <div class = "message_upload">
+          <%= f.text_area :application, class:"post_text", id:"post_title", placeholder:"必須 20文字まで", maxlength:"20" %>
+        </div>
+      </div>
+    </div>
+    <%# text %>
+    <div class="items-detail">
+      <div class = "messages">
+        テキストフォームを使用して小説を作成してください
+        <span class="indispensable">　必須</span>
+      </div>
+      <div class = "message_rich">
+        <%= f.rich_text_area :content %>
+      </div>
+    </div>
+
+    <div class = "message_upload">
+      <div class="submit-btn">
+        <%= f.submit '送信' %>
+      </div>
+    </div>
+  <% end %>
+</div>

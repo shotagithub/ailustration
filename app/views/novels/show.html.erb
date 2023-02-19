@@ -1,0 +1,20 @@
+<div class="posted_content">
+  <h3>詳細ページ</h3>
+  <div class = "contributor_menu">
+    <% if user_signed_in? && current_user.id == @novel.user_id %>
+        <%= link_to "編集", edit_novel_path(@novel.id), method: :get, class: "edit_btn" %>
+        <%= link_to "削除", novel_path(@novel.id), method: :delete, class:"destroy_btn" %>
+    <% end %>
+  </div>
+
+  <div class = "posted_title">
+    <%= @novel.title%><br>
+  </div>
+
+  <div class = "posted_rich">
+    <%= @novel.content%>
+  </div>
+  <div>
+  created by  <%= @novel.application%>
+  </div>
+</div>

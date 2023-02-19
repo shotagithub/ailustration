@@ -104,7 +104,6 @@
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | title                | string     | null: false,                   |
-| content              | string     | null: false,                   |
 | application          | string     | null: false,                   |
 
 ###　Association
