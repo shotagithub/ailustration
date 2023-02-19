@@ -1,26 +1,43 @@
-<h3>詳細ページ</h3>
-<div class="posted-content">
-  <%= image_tag @illust.images[0], class: "main-image" %><br>
+<div class="posted_content">
+  <h3>詳細ページ</h3>
+  <%= image_tag @illust.images[0], class: "main_image" %><br>
+
+  <div class = "contributor_menu">
+    <% if user_signed_in? && current_user.id == @illust.user_id %>
+        <%= link_to "編集", edit_illust_path(@illust.id), method: :get, class: "edit_btn" %>
+        <%= link_to "削除", illust_path(@illust.id), method: :delete, class:"destroy_btn" %>
+    <% end %>
+  </div>
+
+  <% if @illust.images.length != 1 %>
   <details class="other-images">
-  <summary>イラストを全て表示</summary>
-    <% @illust.images[1..-1].each do |image| %>
-      <div class="other-image">
-        <%= image_tag image %>
-      </div><br>
-    <%end%>
+    <summary class = "view_all">イラストを全て表示</summary>
+    <div class = "view_content">
+      <% @illust.images[1..-1].each do |image| %>
+        <div class="other_image">
+          <%= image_tag image %>
+        </div><br>
+      <%end%>
+    </div>
   </details>
-  <% if user_signed_in? && current_user.id == @illust.user_id %>
-      <%= link_to "商品の編集", edit_illust_path(@illust.id), method: :get, class: "edit-btn" %>
-      <%= link_to "削除", illust_path(@illust.id), method: :delete, class:"destroy-btn" %>
   <% end %>
-  <%= @illust.title%><br>
 
-  <%= @illust.description%>
+  <div class = "posted_title">
+    <%= @illust.title%><br>
+  </div>
 
-  <%= @illust.application%>
+  <div class = "posted_description">
+    <%= @illust.description%>
+  </div>
 
-  <% if @illust.prompt.present? %>
-  <%= @illust.prompt%>
-  <% end %>
+  <div class = "posted_application">
+    <%= @illust.application%>
+  </div>
+
+  <div class = "posted_prompt">
+    <% if @illust.prompt.present? %>
+      <%= @illust.prompt%>
+    <% end %>
+  </div>
 
 </div>

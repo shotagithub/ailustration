@@ -1,21 +1,18 @@
-<div class="form-wrapper">
+<div class="form_wrapper">
   <%= form_with model:@illust, id: 'new_post',local: true do |f| %>
-
     <%# top %>
     <div class = "form_top">
-      <h1>イラストを編集</h1>
-      <div class="title_form">イラストの情報を入力してください</div>
+      <div class="title_form">イラストの変更情報を入力してください</div>
     </div>
     <%= render 'shared/error_messages', model: @illust %>
     <%# image %>
-    <div id="previews"></div>
+    <div class = "previews" id="previews"></div>
     <div class="img_upload">
-      <div>
+      <div class = "messages">
         イラストファイル
-        <span class="indispensable">必須</span>
       </div>
       <div class = image-area>
-        <div class="click-upload">
+        <div class="click_upload">
           <%= f.file_field :images, name: 'illust[images][]', data: {index: 0} %>
         </div>
       </div>
@@ -24,35 +21,42 @@
         <div class="weight-bold-text">
     <%# title %>
     <div>
-      <div>
+      <div class = "messages">
         タイトル
-        <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"post_text", id:"post_title", placeholder:"必須 20文字まで", maxlength:"20" %>
-          イラストの説明
-          <span class="indispensable">必須</span>
+        <div class = "message_upload">
+          <%= f.text_area :title, class:"post_text", id:"post_title", placeholder:"必須 20文字まで", maxlength:"20" %>
         </div>
-        <%= f.text_area :description, class:"post_description", id:"post_desc", placeholder:"必須 500文字まで" ,rows:"1" ,maxlength:"500" %>
+        <div class = "messages">
+          イラストの説明
+        </div>
+        <div class = "message_upload">
+          <%= f.text_area :description, class:"post_description", id:"post_desc", placeholder:"必須 500文字まで" ,rows:"1" ,maxlength:"500" %>
+        </div>
       </div>
     </div>
     <%# application %>
     <div class="items-detail">
-      <div class="weight-bold-text">
-      使用したアプリケーション
-      <span class="indispensable">必須</span>
+      <div class = "messages">
+        使用したアプリケーション
       </div>
-      <%= f.text_area :application, class:"post_application", id:"post_app", placeholder:"必須 50文字まで" ,rows:"1" ,maxlength:"50" %>
+      <div class = "message_upload">
+        <%= f.text_area :application, class:"post_application", id:"post_app", placeholder:"必須 50文字まで" ,rows:"1" ,maxlength:"50" %>
+      </div>
     </div>
     <%# application %>
     <div class="items-detail">
-      <div class="weight-bold-text">
-      プロンプトなど
-      <span class="indispensable">任意</span>
+      <div class = "messages">
+        プロンプトなど
       </div>
-      <%= f.text_area :prompt, class:"post_prompt", id:"post_prompt", placeholder:"任意 500文字まで" ,rows:"1" ,maxlength:"500" %>
+      <div class = "message_upload">
+        <%= f.text_area :prompt, class:"post_prompt", id:"post_prompt", placeholder:"任意 500文字まで" ,rows:"1" ,maxlength:"500" %>
+      </div>
     </div>
-    <div class="submit-btn">
-      <%= f.submit '送信' %>
+    <div class = "message_upload">
+      <div class="submit-btn">
+        <%= f.submit '送信' %>
+      </div>
     </div>
   <% end %>
 </div>
