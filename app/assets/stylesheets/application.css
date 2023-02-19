@@ -249,41 +249,65 @@ a {
   padding: 5px;
 }
 
-.image-content{
-  padding-top: 50px;
-}
-
 .thumbnail{
   height: 200px;
   width: 200px;
 }
 
 
+
+
+
 /* post form */
-.form-wrapper{
+.indispensable{
+  color: crimson;
+}
+
+.form_wrapper{
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 2%;
+  margin-top: 2%;
+}
+
+.message_upload{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.form_top {
+  margin: auto;
+  margin-bottom: 15px;
+  font-size: 30px;
 }
 
 .form_main form{
   margin: auto;
 }
 
-.indispensable{
-  color: crimson;
-}
-
-.preview{
+.previews{
   display: flex;
+  justify-content: center;
 }
 
-.preview-image{
+.preview_image{
   height: 100px;
   width: 100px;
 }
 
+.click_upload {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.messages{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 /* illust show */
 

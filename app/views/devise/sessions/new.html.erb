@@ -1,7 +1,8 @@
 <div class='form-wrap'>
   <div class = 'form'>
     <%= form_with model: @user, url: "/users/sign_in", local: true do |f| %>
-
+    
+    <%= render "shared/error_messages", model: @user,url: "/users/sign_in" %>
         <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>

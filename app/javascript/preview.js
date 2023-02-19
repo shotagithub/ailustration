@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', function(){
     previewWrapper.setAttribute('data-index', dataIndex);
 
     const previewImage = document.createElement('img');
-    previewImage.setAttribute('class', 'preview-image');
+    previewImage.setAttribute('class', 'preview_image');
     previewImage.setAttribute('src', blob);
 
     const deleteButton = document.createElement("div");
-    deleteButton.setAttribute("class", "image-delete-button");
+    deleteButton.setAttribute("class", "image_delete_button");
     deleteButton.innerText = "削除";
 
     deleteButton.addEventListener("click", () => deleteImage(dataIndex));
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     newFileField.addEventListener("change", changedFileField);
 
-    const fileFieldsArea = document.querySelector('.click-upload');
+    const fileFieldsArea = document.querySelector('.click_upload');
     fileFieldsArea.appendChild(newFileField);
   };
 
