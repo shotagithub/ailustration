@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'illusts#index'
   resources :illusts
   resources :novels
+  resources :products
 end

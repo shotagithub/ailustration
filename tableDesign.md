@@ -26,9 +26,9 @@
 - has_many :novels
 - has_many :novel_comments
 - has_many :novel_likes
-- has_many :items
-- has_many :item_comments
-- has_many :item_likes
+- has_many :products
+- has_many :product_comments
+- has_many :product_likes
 - has_many :orders
 
 
@@ -161,7 +161,7 @@
 
 
 
-## itemsテーブル
+## productsテーブル
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
@@ -173,56 +173,56 @@
 
 ###　Association
 
-- has_many :item_comments
-- has_many :item_likes
-- has_many :item_tag_relations
-- has_many :item_tags, through: :item_tag_relations
+- has_many :product_comments
+- has_many :product_likes
+- has_many :product_tag_relations
+- has_many :product_tags, through: :product_tag_relations
 - has_many_attached :images
 - belongs_to :user
 
 
 
-## item_commentsテーブル
+## product_commentsテーブル
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
-| item                 | references | null: false, foreign_key: true |
+| product              | references | null: false, foreign_key: true |
 | content              | text       | null: false,                   |
 
 ###　Association
 
 - belongs_to :user
-- belongs_to :item
+- belongs_to :product
 
 
 
-## item_tagsテーブル
+## product_tagsテーブル
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
-| item                 | references | null: false, foreign_key: true |
+| product              | references | null: false, foreign_key: true |
 | name                 | string     | null:false, uniqueness:   true |
 
 ###　Association
 
-- has_many :item_tag_relations
-- has_many :item, through: :illust_tag_relations
+- has_many :product_tag_relations
+- has_many :product, through: :product_tag_relations
 
 
 
-## item_likesテーブル
+## product_likesテーブル
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
-| item                 | references | null: false, foreign_key: true |
+| product              | references | null: false, foreign_key: true |
 
 ###　Association
 
 - belongs_to :user
-- belongs_to :item
+- belongs_to :product
 
 
 ## ordersテーブル
@@ -230,9 +230,9 @@
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
-| item                 | references | null: false, foreign_key: true |
+| product              | references | null: false, foreign_key: true |
 
 ###　Association
 
 belongs_to :user
-belongs_to :item
+belongs_to :product

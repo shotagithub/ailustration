@@ -1,4 +1,4 @@
-<h1>ノベルインデックス</h1>
+<h1>product</h1>
 <%# ログイン %>
 <div class = "main_wrapper">
   <% if user_signed_in? %>
@@ -28,19 +28,25 @@
         new!
         </div>
         <ul class = "new_posts">
-            <% @novel.each do |novel| %>
-              <li class = main_content>
-                <%= link_to novel.title, novel_path(novel.id) %>
-              </li>
-            <% end %>
+              <% @product.each do |product| %>
+                <li class = main_content>
+                  <%= link_to product_path(product.id) do %>
+                    <%= image_tag product.images[0], class: "thumbnail" %><br>
+                  <% end %>
+                </li>
+              <% end %>
         </ul>
         <div class = "ranking_title">
         ranking
         </div>
         <ul class = "ranking_posts">
+            <% @product.each do |product| %>
               <li class = main_content>
-                ノベルランキング
+                <%= link_to product_path(product.id) do %>
+                  <%= image_tag product.images[0], class: "thumbnail" %><br>
+                <% end %>
               </li>
+            <% end %>
         </ul>
       </div>
     </div>
