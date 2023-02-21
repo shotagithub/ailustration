@@ -1,0 +1,39 @@
+<div class="posted_content">
+  <h3>詳細ページ</h3>
+
+  <div class = "posted_title">
+    <%= @product.title%><br>
+  </div>
+
+  <div class = "contributor_menu">
+    <% if user_signed_in? && current_user.id == @product.user_id %>
+        <%= link_to "編集", edit_product_path(@product.id), method: :get, class: "edit_btn" %>
+        <%= link_to "削除依頼", product_path(@product.id), method: :delete, class:"destroy_btn" %>
+    <% end %>
+  </div>
+    <div class = "view_product">
+      <% @product.images.each do |image| %>
+        <div class="product_image">
+          <%= image_tag image %>
+        </div><br>
+      <%end%>
+    </div>
+
+
+  <div class = "posted_order">
+    <td><%= button_to 'download', @product.file, method: :get, class: 'btn btn-info' %></td>
+  </div>
+
+  <div class = "posted_price">
+    <%= @product.price %>　円<br>
+  </div>
+
+  <div class = "posted_description">
+    <%= @product.description%>
+  </div>
+
+  <div class = "posted_application">
+    <%= @product.application%>
+  </div>
+
+</div>

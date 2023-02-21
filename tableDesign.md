@@ -178,6 +178,7 @@
 - has_many :product_tag_relations
 - has_many :product_tags, through: :product_tag_relations
 - has_many_attached :images
+- has_one :order
 - belongs_to :user
 
 

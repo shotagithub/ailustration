@@ -341,6 +341,17 @@ a {
   width: 400px;
 }
 
+.product_image {
+  margin-top: 10px;
+  height: 200px;
+  width: 200px;
+  margin: 10px;
+}
+
+.view_product{
+  display: flex;
+}
+
 .edit_btn{
   position: relative;
   display: inline-block;
