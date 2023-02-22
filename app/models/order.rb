@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  attr_accessor :token
   # validation
   validates :token, presence: true
 

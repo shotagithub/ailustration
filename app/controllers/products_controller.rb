@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
   before_action :set_find, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @order = Order.includes(:user)
   end
 
   def edit

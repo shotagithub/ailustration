@@ -2,7 +2,7 @@
   <h3>詳細ページ</h3>
 
   <div class = "posted_title">
-    <%= @product.title%><br>
+    <%= @product.title %><br>
   </div>
 
   <div class = "contributor_menu">
@@ -19,13 +19,17 @@
       <%end%>
     </li>
 
-
-  <div class = "posted_order">
-    <td><%= button_to 'download', @product.file, method: :get, class: 'btn btn-info' %></td>
-  </div>
-  <div>
-    <%= link_to "購入", product_orders_path(@product.id), class: "buy_btn" %>
-  </div>
+  <% if @product.user_id != current_user.id %>
+    <%# if %>
+      <div class = "posted_order">
+        <td><%= button_to 'download', @product.file, method: :get, class: 'btn btn_info' %></td>
+      </div>
+    <%# else %>
+      <div>
+        <%= link_to "購入", product_orders_path(@product.id), class: "buy_btn" %>
+      </div>
+    <%# end %>
+  <% end %>
 
   <div class = "posted_price">
     <%= @product.price %>　円<br>
