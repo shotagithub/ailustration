@@ -21,7 +21,7 @@ class User < ApplicationRecord
     validates :municipality
     validates :address
   end
-
+  
   # Association
   has_many :illusts
   has_many :illust_comments

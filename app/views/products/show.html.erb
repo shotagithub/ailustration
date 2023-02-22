@@ -11,17 +11,20 @@
         <%= link_to "削除依頼", product_path(@product.id), method: :delete, class:"destroy_btn" %>
     <% end %>
   </div>
-    <div class = "view_product">
+    <li class = "view_product">
       <% @product.images.each do |image| %>
         <div class="product_image">
           <%= image_tag image %>
         </div><br>
       <%end%>
-    </div>
+    </li>
 
 
   <div class = "posted_order">
     <td><%= button_to 'download', @product.file, method: :get, class: 'btn btn-info' %></td>
+  </div>
+  <div>
+    <%= link_to "購入", product_orders_path(@product.id), class: "buy_btn" %>
   </div>
 
   <div class = "posted_price">

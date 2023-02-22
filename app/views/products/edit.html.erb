@@ -1,0 +1,87 @@
+<div class="form_wrapper">
+  <%= form_with model:@product, id: 'product_post',local: true do |f| %>
+    <%# top %>
+    <div class = "form_top">
+      <div class="title_form">商品の情報を入力してください</div>
+    </div>
+    <%= render 'shared/error_messages', model: @product %>
+    <%# image %>
+    <div class = "previews" id="product_previews"></div>
+    <div class="img_upload">
+      <div class = "messages">
+        サンプル
+        <span class="indispensable">　任意</span>
+      </div>
+      <div class = image-area>
+        <div class="click_upload">
+          <%= f.file_field :images, name: 'product[images][]', data: {index: 0} %>
+        </div>
+      </div>
+    </div>
+    <%# file %>
+    <div class="items-detail">
+      <div class = "messages">
+        商品のZIPファイル
+        <span class="indispensable">　必須</span>
+      </div>
+      <div class = "message_upload">
+        <%= f.file_field :file, class:"post_zip", accept: "application/zip", id:"post_zip" %>
+      </div>
+    </div>
+    <%# title %>
+    <div>
+      <div class = "messages">
+        タイトル
+        <span class="indispensable">　必須</span>
+      </div>
+        <div class = "message_upload">
+          <%= f.text_area :title, class:"post_text", id:"post_title", placeholder:"20文字まで", maxlength:"20" %>
+        </div>
+        <div class = "messages">
+          商品の説明
+          <span class="indispensable">　必須</span>
+        </div>
+        <div class = "message_upload">
+          <%= f.text_area :description, class:"post_description", id:"post_desc", placeholder:"500文字まで" ,rows:"1" ,maxlength:"500" %>
+        </div>
+      </div>
+    </div>
+    <%# application %>
+    <div class="items-detail">
+      <div class = "messages">
+        使用したアプリケーション
+        <span class="indispensable">　必須</span>
+      </div>
+      <div class = "message_upload">
+        <%= f.text_area :application, class:"post_application", id:"post_app", placeholder:"50文字まで未使用なら　未使用と記入" ,rows:"1" ,maxlength:"50" %>
+      </div>
+    </div>
+    <%# price %>
+    <div class="items-detail">
+      <div class = "messages">
+        価格　半角数字のみ
+        <span class="indispensable">　必須</span>
+      </div>
+      <div class = "message_upload">
+        <%= f.text_area :price, class:"post_prompt", id:"product_price", placeholder:"800" %>
+        <div>
+          <span>手数料 (10%)</span>
+          <span>
+            <span id='tax_price'></span>円
+          </span>
+        </div>
+        <div>
+          <span>販売利益</span>
+          <span>
+            <span id='profit'></span>円
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class = "message_upload">
+      <div class="submit-btn">
+        <%= f.submit '送信' %>
+      </div>
+    </div>
+  <% end %>
+</div>
