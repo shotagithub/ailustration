@@ -20,7 +20,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @order = Order.includes(:user)
+    if @product.order != nil
+      @products = @product.order
+    end
   end
 
   def edit

@@ -3,10 +3,9 @@ class OrdersController < ApplicationController
   before_action :set_find_product, only: [:index, :create]
   
   def index
-    if user_signed_in? && current_user.id == @product.user_id || @product.order.user_id.present?
+    if user_signed_in? && current_user.id == @product.user_id
       redirect_to root_path
     end
-    @order = Order.new
   end
   def create
     @order = Order.new(order_params)
