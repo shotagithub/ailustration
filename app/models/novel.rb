@@ -21,7 +21,7 @@ class Novel < ApplicationRecord
     if search != ""
       @novel = Novel.where('title LIKE(?)', "%#{search}%")
     else
-      @illust = Novel.all
+      @novel = Novel.all
     end
   end
 end

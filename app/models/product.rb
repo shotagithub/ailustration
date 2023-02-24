@@ -32,4 +32,12 @@ class Product < ApplicationRecord
   def was_attached?
     self.file.attached?
   end
+
+  def self.search(search)
+    if search != ""
+      @product = Product.where('title LIKE(?)', "%#{search}%")
+    else
+      @product = Product.all
+    end
+  end
 end

@@ -42,6 +42,10 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @product = Product.search(params[:keyword]).page(params[:page]).order(created_at: 'desc')
+  end
+
   private
   def product_params
     params.require(:product).permit(:title, :price, :description, :application, :file, {images: []}).merge(user_id: current_user.id)
