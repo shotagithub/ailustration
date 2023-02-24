@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
     if user_signed_in? && current_user.id == @product.user_id
       redirect_to root_path
     end
+    @order = Order.new
   end
   def create
     @order = Order.new(order_params)

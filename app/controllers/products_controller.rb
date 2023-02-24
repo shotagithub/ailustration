@@ -20,9 +20,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    if @product.order != nil
-      @products = @product.order
-    end
+    products = @product.id
+    user = current_user.id
+    @order = Order.where(user_id: user).where(product_id: products)
   end
 
   def edit
