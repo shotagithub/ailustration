@@ -13,42 +13,18 @@
       </div>
     </div>
     <div class = main_center>
-      <div class = "main_contents">
-        <div class = "new_title">
-        new!
-        </div>
-        <ul class = "new_posts">
-              <% @illust.each do |illust| %>
-                <li class = main_content>
-                  <%= link_to illust_path(illust.id) do %>
-                    <%= image_tag illust.images[0], class: "thumbnail" %><br>
-                  <% end %>
-                </li>
-              <% end %>
-        </ul>
-      </div>
+      <ul class = "new_posts">
+            <% @illust.each do |illust| %>
+              <li class = main_content>
+                <%= link_to illust_path(illust.id) do %>
+                  <%= image_tag illust.images[0], class: "thumbnail" %><br>
+                 <% end %>
+              </li>
+            <% end %>
+      </ul>
     </div>
+    <div class='pagination'><%= paginate(@illust) %></div>
 </div>
 
-
-
-
-
-
-
-
-
-
-  <div class = "main_center">
-    <% @illust.each do |illust| %>
-      <ul>
-        <li class = main_content >
-          <%= link_to illust_path(illust.id) do %>
-            <%= image_tag illust.images[0], class: "thumbnail" %><br>
-          <% end %>
-        </li>
-      </ul>
-    <% end %>
-  </div>
-  <div class='pagination'><%= paginate(@illust) %></div>
+  
 </div>
