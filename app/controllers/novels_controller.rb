@@ -39,6 +39,10 @@ class NovelsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @novel = Novel.search(params[:keyword]).page(params[:page]).order(created_at: 'desc')
+  end
+
   private
   def novel_params
     params.require(:novel).permit(:title, :application, :content).merge(user_id: current_user.id)

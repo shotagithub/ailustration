@@ -15,4 +15,13 @@ class Novel < ApplicationRecord
   has_many_attached :images
   has_rich_text :content
   belongs_to :user
+
+
+  def self.search(search)
+    if search != ""
+      @novel = Novel.where('title LIKE(?)', "%#{search}%")
+    else
+      @illust = Novel.all
+    end
+  end
 end
