@@ -17,4 +17,15 @@ class Illust < ApplicationRecord
   has_many_attached :images
 
   belongs_to :user
+
+
+
+  def self.search(search)
+    if search != ""
+      @illust = Illust.where('title LIKE(?)', "%#{search}%")
+    else
+      @illust = Illust.all
+    end
+  end
+
 end

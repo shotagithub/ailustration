@@ -1,6 +1,4 @@
-<%# ログイン %>
 <div class = "main_wrapper">
-  <% if user_signed_in? %>
     <div class = "main_top">
       <div class = "advertisement">
           広告を設置
@@ -11,13 +9,6 @@
             <%= f.text_field :keyword, placeholder: "イラストを検索する", class: "search_input" %>
             <%= f.submit "検索", class: "search_btn" %>
           <% end %>
-        </div>
-      </div>
-      <div class = "select_ber">
-        <div class = "select_btn">
-          <%= link_to "イラスト", illusts_path, class: :illust_btn %>
-          <%= link_to "小説",  novels_path, class: :novel_btn %>
-          <%= link_to "商品", products_path, class: :item_btn %>
         </div>
       </div>
     </div>
@@ -35,23 +26,29 @@
                 </li>
               <% end %>
         </ul>
-        <div class = "ranking_title">
-        ranking
-        </div>
-        <ul class = "ranking_posts">
-            <% @illust.each do |illust| %>
-              <li class = main_content>
-                <%= link_to illust_path(illust.id) do %>
-                  <%= image_tag illust.images[0], class: "thumbnail" %><br>
-                <% end %>
-              </li>
-            <% end %>
-        </ul>
       </div>
     </div>
-    <%# 未ログイン %>
-    <% else %>
-    <h1>アプリ紹介画面表示</h1>
-  <%# ログイン分岐終了 %>
-  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <div class = "main_center">
+    <% @illust.each do |illust| %>
+      <ul>
+        <li class = main_content >
+          <%= link_to illust_path(illust.id) do %>
+            <%= image_tag illust.images[0], class: "thumbnail" %><br>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+  <div class='pagination'><%= paginate(@illust) %></div>
 </div>

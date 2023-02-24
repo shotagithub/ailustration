@@ -1,5 +1,5 @@
 class IllustsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :search]
   before_action :set_find, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -37,6 +37,10 @@ class IllustsController < ApplicationController
   def destroy
     @illust.destroy if user_signed_in? && current_user.id == @illust.user.id
     redirect_to root_path
+  end
+
+  def search
+    @illust = Illust.search(params[:keyword]).page(params[:page]).order(created_at: 'desc')
   end
 
   private

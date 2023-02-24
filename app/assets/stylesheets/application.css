@@ -141,6 +141,10 @@ a {
 }
 
 /* main_top */
+
+.main_content{
+}
+
 .main_top{
   height: 30%;
 }
@@ -386,4 +390,25 @@ a {
 .destroy_btn:hover{
   color: #fff;
   background: #87CEFA;
+}
+
+
+/* pagination */
+
+.pagination{
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination span {
+  margin: 3px;
+  padding: 3px;
+  background: #d3e9ff;
+  border-radius: 50%;
+}
+
+.pagination span:hover {        
+  border-radius: 50%;
+  background: #aeffbb
 }
