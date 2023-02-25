@@ -1,47 +1,65 @@
 <div class="posted_content">
-  <h3>詳細ページ</h3>
 
-  <div class = "posted_title">
-    <%= @product.title %><br>
-  </div>
-
+  <%# ユーザーメニューを表示 %>
   <div class = "contributor_menu">
     <% if user_signed_in? && current_user.id == @product.user_id %>
         <%= link_to "編集", edit_product_path(@product.id), method: :get, class: "edit_btn" %>
         <%= link_to "削除依頼", product_path(@product.id), method: :delete, class:"destroy_btn" %>
     <% end %>
   </div>
-    <li class = "view_product">
-      <% @product.images.each do |image| %>
-        <div class="product_image">
-          <%= image_tag image %>
-        </div><br>
-      <%end%>
-    </li>
-    <% if @product.user_id != current_user.id %>
-     
-      <% if @order.present? %>
-        
-        <div class = "posted_order">
-          <td><%= button_to 'download', @product.file, method: :get, class: 'btn btn_info' %></td>
-        </div>
-      <% else %>
-        <div>
-          <%= link_to "購入", product_orders_path(@product.id), class: "buy_btn" %>
-        </div> 
-      <% end %>
-
+  <%# タイトルを表示 %>
+  <div class = "posted_title">
+    <%= @product.title %><br>
+  </div>
+  <%# サンプル画像を表示 %>
+  <li class = "view_product">
+    <% @product.images.each do |image| %>
+      <div class="product_image">
+        <%= image_tag image %>
+      </div><br>
+    <%end%>
+  </li>
+  <%# 未購入時には購入ボタン、購入者にはダウンロードボタンを表示 %>
+  <% if @product.user_id != current_user.id %>
+    <% if @order.present? %>
+      <div class = "posted_order">
+        <td><%= button_to 'download', @product.file, method: :get, class: 'btn btn_info' %></td>
+      </div>
+    <% else %>
+      <div>
+        <%= link_to "購入", product_orders_path(@product.id), class: "buy_btn" %>
+      </div> 
     <% end %>
+  <% end %>
+  <%# 商品の価格を表示 %>
   <div class = "posted_price">
     <%= @product.price %>　円<br>
   </div>
-
+  <%# 商品の説明 %>
   <div class = "posted_description">
     <%= @product.description%>
   </div>
-
+  <%# 使用したアプリを表示 %>
   <div class = "posted_application">
     <%= @product.application%>
   </div>
 
+  <%# 購入者にはコメント投稿フォームを表示 %>
+  <% if @order.present? %>
+    <div class="container">
+      <%= form_with(model: [@product, @comment], local: true) do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= f.submit "SEND" %>
+      <% end %>
+    </div>
+  <% end %>
+  <%# コメント表示 %>
+  <div class="comments">
+      <h4>コメント一覧</h4>
+      <% @comments.each do |comments| %>
+        <p>
+          <%= comments.text %>
+        </p>
+      <% end %>
+  </div>
 </div>

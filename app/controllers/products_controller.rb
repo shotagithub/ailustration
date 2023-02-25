@@ -23,6 +23,9 @@ class ProductsController < ApplicationController
     products = @product.id
     user = current_user.id
     @order = Order.where(user_id: user).where(product_id: products)
+
+    @comment = ProductComment.new
+    @comments = @product.product_comments.includes(:user)
   end
 
   def edit
