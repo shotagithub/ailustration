@@ -1,14 +1,14 @@
 <div class="posted_content">
-  <h3>詳細ページ</h3>
-  <%= image_tag @illust.images[0], class: "main_image" %><br>
-
+  <%# ユーザーメニューを表示 %>
   <div class = "contributor_menu">
     <% if user_signed_in? && current_user.id == @illust.user_id %>
         <%= link_to "編集", edit_illust_path(@illust.id), method: :get, class: "edit_btn" %>
         <%= link_to "削除", illust_path(@illust.id), method: :delete, class:"destroy_btn" %>
     <% end %>
   </div>
-
+  <%# 最初のイラストを表示 %>
+  <%= image_tag @illust.images[0], class: "main_image" %><br>
+  <%# イラストを表示 %>
   <% if @illust.images.length != 1 %>
   <details class="other-images">
     <summary class = "view_all">イラストを全て表示</summary>
@@ -21,23 +21,41 @@
     </div>
   </details>
   <% end %>
-
+  <%# タイトルを表示 %>
   <div class = "posted_title">
     <%= @illust.title%><br>
   </div>
-
+  <%# 説明を表示 %>
   <div class = "posted_description">
     <%= @illust.description%>
   </div>
-
+  <%# 使用アプリを表示 %>
   <div class = "posted_application">
     <%= @illust.application%>
   </div>
-
+  <%# プロンプトがあれば表示 %>
   <div class = "posted_prompt">
     <% if @illust.prompt.present? %>
       <%= @illust.prompt%>
     <% end %>
   </div>
 
+  <%# コメント投稿 %>
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@illust, @comment], local: true) do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= f.submit "SEND" %>
+      <% end %>
+    <% end %>
+  </div>
+  <%# コメント表示 %>
+  <div class="comments">
+      <h4>コメント一覧</h4>
+      <% @comments.each do |comments| %>
+        <p>
+          <%= comments.text %>
+        </p>
+      <% end %>
+    </div>
 </div>
