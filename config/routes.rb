@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :novels do
+    resources :novel_comments, only: :create
     collection do
       get 'search'
     end

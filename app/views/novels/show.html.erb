@@ -1,5 +1,6 @@
 <div class="posted_content">
-  <h3>詳細ページ</h3>
+
+  <%# ユーザーメニューを表示 %>
   <div class = "contributor_menu">
     <% if user_signed_in? && current_user.id == @novel.user_id %>
         <%= link_to "編集", edit_novel_path(@novel.id), method: :get, class: "edit_btn" %>
@@ -7,14 +8,35 @@
     <% end %>
   </div>
 
+  <%# タイトルを表示 %>
   <div class = "posted_title">
     <%= @novel.title%><br>
   </div>
-
+  <%# 小説を表示 %>
   <div class = "posted_rich">
     <%= @novel.content%>
   </div>
-  <div>
-  created by  <%= @novel.application%>
+  <%# 使用したアプリがあれば表示 %>
+  <% if @novel.application.present?%>
+    <div>
+    created by  <%= @novel.application%>
+    </div>
+  <% end %>
+
+  <%# コメント投稿 %>
+  <div class="container">
+    <%= form_with(model: [@novel, @comment], local: true) do |f| %>
+      <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+      <%= f.submit "SEND" %>
+    <% end %>
   </div>
+  <%# コメント表示 %>
+  <div class="comments">
+      <h4>コメント一覧</h4>
+      <% @comments.each do |comments| %>
+        <p>
+          <%= comments.text %>
+        </p>
+      <% end %>
+    </div>
 </div>

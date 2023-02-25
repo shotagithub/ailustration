@@ -20,6 +20,8 @@ class NovelsController < ApplicationController
   end
 
   def show
+    @comment = NovelComment.new
+    @comments = @novel.novel_comments.includes(:user)
   end
 
   def edit

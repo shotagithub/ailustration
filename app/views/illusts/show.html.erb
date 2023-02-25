@@ -1,4 +1,5 @@
 <div class="posted_content">
+
   <%# ユーザーメニューを表示 %>
   <div class = "contributor_menu">
     <% if user_signed_in? && current_user.id == @illust.user_id %>
@@ -6,6 +7,7 @@
         <%= link_to "削除", illust_path(@illust.id), method: :delete, class:"destroy_btn" %>
     <% end %>
   </div>
+
   <%# 最初のイラストを表示 %>
   <%= image_tag @illust.images[0], class: "main_image" %><br>
   <%# イラストを表示 %>
@@ -42,11 +44,9 @@
 
   <%# コメント投稿 %>
   <div class="container">
-    <% if user_signed_in? %>
-      <%= form_with(model: [@illust, @comment], local: true) do |f| %>
-        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= f.submit "SEND" %>
-      <% end %>
+    <%= form_with(model: [@illust, @comment], local: true) do |f| %>
+      <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+      <%= f.submit "SEND" %>
     <% end %>
   </div>
   <%# コメント表示 %>
