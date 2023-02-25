@@ -60,7 +60,7 @@
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | illust               | references | null: false, foreign_key: true |
-| content              | text       | null: false,                   |
+| text                 | text       | null: false,                   |
 
 ###　Association
 
@@ -123,7 +123,7 @@
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | novel                | references | null: false, foreign_key: true |
-| content              | text       | null: false,                   |
+| text                 | text       | null: false,                   |
 
 ###　Association
 
@@ -189,7 +189,7 @@
 | -------------------- | ---------- | ------------------------------ |
 | user                 | references | null: false, foreign_key: true |
 | product              | references | null: false, foreign_key: true |
-| content              | text       | null: false,                   |
+| text                 | text       | null: false,                   |
 
 ###　Association
 
