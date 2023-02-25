@@ -1,0 +1,2 @@
+class IllustCommentsController < ApplicationController
+end

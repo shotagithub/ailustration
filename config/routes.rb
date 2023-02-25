@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'illusts#index'
   
   resources :illusts do
+    resources :illust_comments, only: :create
     collection do
       get 'search'
     end
