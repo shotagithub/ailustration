@@ -21,6 +21,7 @@ class User < ApplicationRecord
     validates :municipality
     validates :address
   end
+  validate :age
   
   # Association
   has_many :illusts
@@ -36,5 +37,17 @@ class User < ApplicationRecord
   has_many :item_likes
   
   has_many :orders
-
+  private
+  def age
+    year = birth.year.to_s
+    month = ("%02d" % birth.month).to_s
+    day = ("%02d" % birth.day).to_s
+    date_birth = (year + month + day).to_i
+    ages = ((Date.today.strftime('%Y%m%d').to_i - date_birth) / 10000).floor
+    if ages >= 18
+      true
+    else
+      errors.add(:age, "18歳未満は登録できません")
+    end
+  end
 end

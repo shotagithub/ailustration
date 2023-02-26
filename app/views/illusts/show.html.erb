@@ -54,9 +54,9 @@
     <div class="comments">
         <h4 class = "comment-view" >コメント一覧</h4>
         <% @comments.each do |comments| %>
-          <div>
-            <strong class = "comment-nickname"><%= comments.user.nickname %></strong>
-            <%= comments.text %>
+          <div class = "comment-content">
+            <div class = "comment-nickname"><%= comments.user.nickname %></div>
+            <div class = "comment-text"><%= comments.text %></div>
           </div>
         <% end %>
     </div>

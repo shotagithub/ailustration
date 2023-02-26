@@ -1,69 +1,69 @@
-<div class='form-wrap'>
-  <div class = 'form'>
+<div class='confirmation-wrapper'>
+  <div class = 'confirmation-form'>
     <%= form_with model: @user, url: registration_path(@user), class: 'registration-main', local: true do |f| %>
       <%= render "shared/error_messages", model: @user %>
       
-      <div class="field">
-        <%= f.label :email %><br />
+      <div class="confirmation-email">
+        <%= f.label :email, "メールアドレス" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
-
-      <div class="field">
-        <%= f.label :password, "パスワード（6文字以上）" %><br />
+      
+      <div class="confirmation-pass1">
+        <%= f.label :password, "パスワード（英数字含む6文字以上）" %><br />
         <%= f.password_field :password, id:"user_password",autofocus: true, autocomplete: "new-password" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-pass2">
         <%= f.label :password_confirmation, "パスワード再入力" %><br />
         <%= f.password_field :password_confirmation, id:"user_password_confirmation", autocomplete: "new-password" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-nickname">
         <%= f.label :nickname, "ニックネーム" %><br />
         <%= f.text_field :nickname, id:"nickname" %>
       </div>
-
-      <div class="field">
+      <div class = "confirmation-name">
+      <div class="confirmation-last-name">
         <%= f.label :last_name, "苗字" %><br />
         <%= f.text_field :last_name, id:"last_name" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-first-name">
         <%= f.label :first_name, "名前" %><br />
         <%= f.text_field :first_name, id:"first_name" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-last-name-ruby">
         <%= f.label :last_name_ruby, "苗字の読み仮名" %><br />
         <%= f.text_field :last_name_ruby, id:"last_name_ruby" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-first-name-ruby">
         <%= f.label :first_name_ruby, "名前の読み仮名" %><br />
         <%= f.text_field :first_name_ruby, id:"first_name_ruby" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-birth">
         <%= f.label :birth, "生年月日" %><br />
         <%= f.date_select :birth, use_month_numbers: true, start_year: (Time.now.year - 100),end_year: (Time.now.year), default: Date.new(Time.now.year - 18), id:"birth" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-prefecture">
         <%= f.label :prefecture, "都道府県" %><br />
         <%= f.text_field :prefecture, id:"prefecture" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-municipality">
         <%= f.label :municipality, "市区町村" %><br />
         <%= f.text_field :municipality, id:"municipality" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-address">
         <%= f.label :address, "番地" %><br />
         <%= f.text_field :address, id:"address" %>
       </div>
 
-      <div class="field">
+      <div class="confirmation-building">
         <%= f.label :building, "建物名" %><br />
         <%= f.text_field :building, id:"building" %>
       </div>

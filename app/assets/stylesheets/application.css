@@ -131,6 +131,20 @@ a {
 
 
 
+/* devise */
+.confirmation-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+
+
 
 
 /* main */
@@ -413,6 +427,14 @@ a {
   background-color: #ebf7ff;
 }
 
+.comment-content{
+  padding: 5px;
+}
+
+.comment-text{
+  word-break: break-all;
+}
+
 /* pagination */
 
 .pagination{
@@ -432,3 +454,4 @@ a {
   border-radius: 50%;
   background: #aeffbb
 }
+
