@@ -15,11 +15,12 @@
     <div class = main_center>
       <ul class = "new_posts">
             <% @novel.each do |novel| %>
-              <li class = main_content>
-                <%= link_to novel.title, novel_path(novel.id) %>
+              <li class = "main_novel">
+                <%= link_to image_tag("book_title.png"),novel_path(novel.id), class: "novel_image" %>
+                <%= link_to novel.title, novel_path(novel.id), class: "new_novel_title" %>
               </li>
             <% end %>
-      </ul>
+        </ul>
     </div>
     <div class='pagination'><%= paginate(@novel) %></div>
 </div>
