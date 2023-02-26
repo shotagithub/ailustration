@@ -64,16 +64,19 @@ a {
   margin-bottom: 20px;
   padding: 15px;
 }
+
 .inner {
   width: 100%;
 }
+
 .nav {
   margin: 0 auto;
   width: 96%;
   display: flex;
   justify-content: space-between;
 }
-.logo{
+
+.logo {
   font-size: 20px;
   font-weight: bold;
 }
@@ -83,7 +86,7 @@ a {
   margin-right: 100px;
 }
 
-.nav_btn{
+.nav_btn {
   position: relative;
   display: inline-block;
   padding: 4px 16px;
@@ -96,7 +99,7 @@ a {
   transition: 0.4s ease;
 }
 
-.nav_btn:hover{
+.nav_btn:hover {
   color: #fff;
   background: #87CEFA;
 }
@@ -111,7 +114,7 @@ a {
   background-color: #cfebff;
 }
 
-.nav_logout{
+.nav_logout {
   display: inline-block;
   padding: 4px 16px;
   border: 1px #bd49be solid;
@@ -120,11 +123,11 @@ a {
   text-decoration: none;
   user-select: none;
 }
-.nav_logout:hover{
+.nav_logout:hover {
   opacity: 0.5;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -159,7 +162,7 @@ a {
   justify-content: space-between;
 }
 
-.confirmation-last-name input{
+.confirmation-last-name input {
   margin-right: 10px;
 }
 
@@ -167,8 +170,21 @@ a {
   display: flex;
   justify-content: space-between;
 }
-.confirmation-last-name-ruby input{
+
+.confirmation-last-name-ruby input {
   margin-right: 10px;
+}
+
+.confirmation-submit {
+  font-weight: bold;
+  letter-spacing: 3px;
+  background-color: #e3f4ff;
+  border-radius: 20%;
+  border-color: #87CEFA;
+}
+
+.confirmation-submit:hover{
+  opacity: 0.7;
 }
 
 
