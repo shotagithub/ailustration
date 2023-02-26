@@ -1,4 +1,3 @@
-<h1>ノベルインデックス</h1>
 <%# ログイン %>
 <div class = "main_wrapper">
   <% if user_signed_in? %>
@@ -22,15 +21,16 @@
         </div>
       </div>
     </div>
-    <div class = main_center>
+    <div class = "main_center">
       <div class = "main_contents">
         <div class = "new_title">
-        new!
+        <a>New Novels!</a>
         </div>
         <ul class = "new_posts">
             <% @novel.each do |novel| %>
-              <li class = main_content>
-                <%= link_to novel.title, novel_path(novel.id) %>
+              <li class = "main_novel">
+                <%= link_to image_tag("book_title"),novel_path(novel.id), class: "novel_image" %>
+                <%= link_to novel.title, novel_path(novel.id), class: "new_novel_title" %>
               </li>
             <% end %>
         </ul>
