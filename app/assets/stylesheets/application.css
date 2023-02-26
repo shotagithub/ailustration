@@ -280,6 +280,8 @@ a {
   display: flex;
   justify-content: center;
   font-size: 30px;
+  font-family: cursive;
+  margin: 10px 0px;
 }
 
 .new_posts{
