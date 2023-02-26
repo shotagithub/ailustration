@@ -1,5 +1,5 @@
 class NovelsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :new, :show, :edit, :update, :destroy, :search]
   before_action :set_find, only: [:show, :edit, :update, :destroy]
 
   def index

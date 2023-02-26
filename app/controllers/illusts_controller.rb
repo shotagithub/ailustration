@@ -1,5 +1,5 @@
 class IllustsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :search]
+  before_action :authenticate_user!, only: [:new, :show, :edit, :update, :destroy, :search]
   before_action :set_find, only: [:show, :edit, :update, :destroy]
 
   def index
