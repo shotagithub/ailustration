@@ -139,9 +139,37 @@ a {
   justify-content: center;
 }
 
+.confirmation-form {
+  text-align: center;
+}
 
+.confirmation-form input {
+  margin-bottom: 10px;
+  text-align: center;
+}
 
+.confirmation-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.confirmation-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirmation-last-name input{
+  margin-right: 10px;
+}
+
+.confirmation-ruby {
+  display: flex;
+  justify-content: space-between;
+}
+.confirmation-last-name-ruby input{
+  margin-right: 10px;
+}
 
 
 
