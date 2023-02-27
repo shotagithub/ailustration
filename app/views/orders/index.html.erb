@@ -1,42 +1,56 @@
 <div class = "form_wrapper">
-  <div class = "order_items">
-    <%= @product.title %>
-  </div>
-  <div class = "order_price">
-    <%= "¥ #{@product.price} 円" %>
-  </div>
-  <%= render 'shared/error_messages', model: @order %>
-  <%= form_with(model: [@product, @order], class: 'card_form', id: 'charge-form', local: true) do |f| %>
-      <div class='credit-card-form'>
-      <h1 class='info-input-haedline'>
-        クレジットカード情報入力
-      </h1>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">カード情報</label>
-          <span class="indispensable">必須</span>
-        </div>
-        <div id = "card-number" class = "input-default"></div>
-      </div>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">有効期限</label>
-          <span class="indispensable">必須</span>
-        </div>
-        <div class='input-expiration-date-wrap'>
-          <div id = "card-exp" class = "input-expiration-date"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class='form-text-wrap'>
-          <label class="form-text">セキュリティコード</label>
-          <span class="indispensable">必須</span>
-        </div>
-        <div id = "card-cvc" class= "input-default"></div>
-      </div>
+  <div class = "order_form">
+
+    <%# アイテム情報 %>
+    <div class = "order_image">
+      <%= @product.title %>
     </div>
-      <div class='buy-btn'>
-      <%= f.submit "購入" ,class:"buy-red-btn", id:"button" %>
+    <div class = "order_items">
+      <%= image_tag @product.images[0], class: "order_thumbnail" %>
+    </div>
+    <div class = "order_price">
+      <%= "¥ #{@product.price} 円" %>
+    </div>
+    
+
+    <%# エラーメッセージ %>
+    <div>
+    <%= render 'shared/error_messages', model: @order %>
+    </div>
+
+    <%# クレジットカードフォーム %>
+    <%= form_with(model: [@product, @order], class: 'card_form', id: 'charge_form', local: true) do |f| %>
+      <div class='credit_card_form'>
+        <h1 class='info_input_haedline'>
+          クレジットカード情報入力
+        </h1>
+        <div class="order_form_group">
+          <div class='form_text_wrap'>
+            <label class="form_text">カード情報</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div id = "card_number" class = "input_default"></div>
+        </div>
+        <div class="order_form_group">
+          <div class='form_text_wrap'>
+            <label class="form_text">有効期限</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='input_expiration_date_wrap'>
+            <div id = "card_exp" class = "input_expiration_date"></div>
+          </div>
+        </div>
+        <div class="order_form_group">
+          <div class='form_text_wrap'>
+            <label class="form_text">セキュリティコード</label>
+            <span class="indispensable">必須</span>
+          </div>
+            <div id = "card_cvc" class= "input_default"></div>
+        </div>
+        <div class='order_buy_btn'>
+          <%= f.submit "購入" ,class:"buy_btn", id:"button" %>
+        </div>
       </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

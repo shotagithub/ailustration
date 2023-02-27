@@ -11,7 +11,7 @@ class User < ApplicationRecord
   VALID_RUBY_REGEX = /\A[ァ-ヶー－]+\z/.freeze
   with_options presence: true do
     validates :password,        format: { with: VALID_PASSWORD_REGEX }
-    validates :nickname
+    validates :nickname, uniqueness: true
     validates :last_name,       format: { with: VALID_NAME_REGEX }
     validates :first_name,      format: { with: VALID_NAME_REGEX }
     validates :last_name_ruby,  format: { with: VALID_RUBY_REGEX }
@@ -37,6 +37,8 @@ class User < ApplicationRecord
   has_many :item_likes
   
   has_many :orders
+
+
   private
   def age
     year = birth.year.to_s

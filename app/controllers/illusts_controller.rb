@@ -25,6 +25,9 @@ class IllustsController < ApplicationController
   end
 
   def edit
+    if user_signed_in? && @illust.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
@@ -45,6 +48,8 @@ class IllustsController < ApplicationController
     @illust = Illust.search(params[:keyword]).page(params[:page]).order(created_at: 'desc')
   end
 
+
+  
   private
   def illust_params
     params.require(:illust).permit(:title, :description, :application, :prompt, {images: []}).merge(user_id: current_user.id)

@@ -25,6 +25,9 @@ class NovelsController < ApplicationController
   end
 
   def edit
+    if user_signed_in? && @novel.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
