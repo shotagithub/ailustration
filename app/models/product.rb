@@ -12,7 +12,7 @@ class Product < ApplicationRecord
   validate :file_content_type, if: :was_attached?
 
   # Association
-  has_many           :product_comments
+  has_many           :product_comments, dependent: :destroy
   has_many           :product_likes
   has_many           :product_tag_relations
   has_many           :product_tags, through: :product_tag_relations

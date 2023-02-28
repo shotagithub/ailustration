@@ -14,18 +14,8 @@
       </div>
       <div class = image-area>
         <div class="click_upload">
-          <%= f.file_field :images, name: 'product[images][]', data: {index: 0} %>
+          <%= f.file_field :images, accept: "image/*", name: 'product[images][]', data: {index: 0} %>
         </div>
-      </div>
-    </div>
-    <%# file %>
-    <div class="items-detail">
-      <div class = "messages">
-        商品のZIPファイル
-        <span class="indispensable">　必須</span>
-      </div>
-      <div class = "message_upload">
-        <%= f.file_field :file, class:"post_zip", accept: "application/zip", id:"post_zip" %>
       </div>
     </div>
     <%# title %>

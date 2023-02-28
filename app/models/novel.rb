@@ -8,7 +8,7 @@ class Novel < ApplicationRecord
   end
 
   # Association
-  has_many :novel_comments
+  has_many :novel_comments, dependent: :destroy
   has_many :novel_likes
   has_many :novel_tag_relations
   has_many :novel_tags, through: :novel_tag_relations

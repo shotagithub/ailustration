@@ -14,7 +14,7 @@
       </div>
       <div class = image-area>
         <div class="click_upload">
-          <%= f.file_field :images, name: 'product[images][]', data: {index: 0} %>
+          <%= f.file_field :images, accept: "image/*", name: 'product[images][]', data: {index: 0} %>
         </div>
       </div>
     </div>
