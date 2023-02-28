@@ -11,6 +11,16 @@
           <% end %>
         </div>
       </div>
+      <% if params[:keyword].present? %>
+        <div><%= "#{params[:keyword]}の検索結果" %></div>
+      <%end%>
+      <div class = "select_ber">
+        <div class = "select_btn">
+          <%= link_to "イラスト", search_illusts_path(keyword: params[:keyword]),method: :get, class: :illust_btn %>
+          <%= link_to "小説",  search_novels_path(keyword: params[:keyword]),method: :get, class: :novel_btn %>
+          <%= link_to "商品", search_products_path(keyword: params[:keyword]),method: :get, class: :item_btn %>
+        </div>
+      </div>
     </div>
     <div class = main_center>
       <ul class = "new_posts">

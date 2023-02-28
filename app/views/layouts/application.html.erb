@@ -13,10 +13,12 @@
     <header class="header">
       <div class="inner">
         <div class="nav">
-
+          <%# ロゴ %>
           <div class="nav-left">
             <%= link_to image_tag("ailus_logo.png"), root_path, class: :logo %>
           </div>
+          
+          <%# ログイン時はニックネームを表示 %>
           <% if user_signed_in? %>
             <div class = "nav_center">
               <%= link_to "#{current_user.nickname}さん", root_path, class: :nickname %>
