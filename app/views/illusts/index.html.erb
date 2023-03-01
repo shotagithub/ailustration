@@ -51,7 +51,23 @@
     </div>
     <%# 未ログイン %>
     <% else %>
-    <h1>アプリ紹介画面表示</h1>
+    <div class = "intro_wrapper">
+      <div class = "intro_txits">
+        <div class = "intro_text1", id = "introduce_text1">作成したAI作品を見てもらいたい！</div>
+        <div class = "intro_text2", id = "introduce_text2">作成したAI作品を売りたい！</div>
+        <div class = "intro_text3", id = "introduce_text3">AI作品をもっと見たい！</div>
+        <div class = "intro_text4", id = "introduce_text4">それならラスろう！！</div>
+      </div>
+      <div class = "intro_top", id = "introduce_illust1">
+        <%= image_tag "intro1.png" %>
+      </div>
+      <div class = "intro_top", id = "introduce_illust2">
+        <%= image_tag "intro2.png" %>
+      </div>
+      <div class = "intro_under", id = "introduce_illust3">
+        <%= image_tag "intro3.png" %>
+      </div>
+    </div>
   <%# ログイン分岐終了 %>
   <% end %>
 </div>
