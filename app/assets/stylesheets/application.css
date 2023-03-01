@@ -101,7 +101,7 @@ a {
 
 .nav_btn:hover {
   color: #fff;
-  background: #87CEFA;
+  background: #e587fa;
 }
 
 .nav_lists {
@@ -110,7 +110,7 @@ a {
   text-align: center;
   white-space: nowrap;
   position: absolute;
-  color: #ffffff;
+  border-color: #bd49be;
   background-color: #cfebff;
 }
 
@@ -210,7 +210,7 @@ a {
 }
 .intro_text4{
   margin-top: 20px;
-  font-size: 40px;
+  font-size: 50px;
   text-align: center;
   opacity: 0;
 }

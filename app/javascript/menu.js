@@ -4,7 +4,7 @@ window.addEventListener('load', function(){
   const navPullDownParents = document.getElementById("navPullDown")
   
     navPullDown.addEventListener('mouseover', function(){
-      this.setAttribute("style", "background-color:#FFBEDA;")
+      this.setAttribute("style", "background-color:#e587fa;")
     })
   
     navPullDown.addEventListener('mouseout', function(){
