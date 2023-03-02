@@ -497,11 +497,10 @@ a {
 }
 
 .products_buy_btn {
-  display: flex;
-  justify-content: center;
-  border: solid #87CEFA;
-  border-radius: 25%;
-  
+  border: solid;
+  border-radius: 20%;
+  border-color: #87CEFA;
+  background-color: #e3f4ff;
 }
 
 .comment-wrapper {
