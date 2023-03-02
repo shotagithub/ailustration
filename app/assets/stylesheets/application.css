@@ -52,8 +52,9 @@ a {
 }
 
 
-
-
+.field_with_errors {
+  display: contents;
+}
 
 
 /* header */
@@ -215,17 +216,12 @@ a {
   opacity: 0;
 }
 
-.intro_top {
+.intro_logo {
   opacity: 0;
   margin-top: 30px;
 }
 
-.intro_top {
-  opacity: 0;
-  margin-top: 100px;
-}
-
-.intro_under {
+.intro_illust {
   opacity: 0;
   margin-top: 100px;
 }
@@ -498,6 +494,14 @@ a {
 .destroy_btn:hover{
   color: #fff;
   background: #87CEFA;
+}
+
+.products_buy_btn {
+  display: flex;
+  justify-content: center;
+  border: solid #87CEFA;
+  border-radius: 25%;
+  
 }
 
 .comment-wrapper {

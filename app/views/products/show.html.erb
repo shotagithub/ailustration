@@ -26,7 +26,7 @@
         <td><%= button_to 'download', @product.file, method: :get, class: 'btn btn_info' %></td>
       </div>
     <% else %>
-      <div>
+      <div class='products_buy_btn'>
         <%= link_to "購入", product_orders_path(@product.id), class: "buy_btn" %>
       </div> 
     <% end %>

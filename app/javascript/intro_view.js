@@ -49,10 +49,10 @@ const intro = () => {
     );
   }, 3000);
   
-// イラストアニメーション
+// ロゴアニメーション
 
   setTimeout (function(){
-    document.getElementById("introduce_illust1").animate(
+    document.getElementById("introduce_logo").animate(
       [
         {opacity: 0},{opacity: 1}
       ],
@@ -63,9 +63,9 @@ const intro = () => {
     );
   }, 4000);
 
-
+// イラストアニメーション
   addEventListener('scroll', function () {
-    const illust1 = document.getElementById("introduce_illust2")
+    const illust1 = document.getElementById("introduce_illust1")
     const scroll = window.pageYOffset;
     if (scroll > 300){
       illust1.style.opacity = "1";
@@ -75,12 +75,22 @@ const intro = () => {
   });
 
   addEventListener('scroll', function () {
-    const illust1 = document.getElementById("introduce_illust3")
+    const illust2 = document.getElementById("introduce_illust2")
     const scroll = window.pageYOffset;
     if (scroll > 600){
-      illust1.style.opacity = "1";
+      illust2.style.opacity = "1";
     } else {
-      illust1.style.opacity = "0";
+      illust2.style.opacity = "0";
+    };
+  });
+
+  addEventListener('scroll', function () {
+    const illust3 = document.getElementById("introduce_illust3")
+    const scroll = window.pageYOffset;
+    if (scroll > 900){
+      illust3.style.opacity = "1";
+    } else {
+      illust3.style.opacity = "0";
     };
   });
   
