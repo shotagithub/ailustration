@@ -8,6 +8,7 @@ const productCalc = () => {
     sum.innerHTML = Math.floor(price.value * 0.9)
   });
 };
+
 if(document.URL.match(/products\/new/)){
-window.addEventListener('load', productCalc);
+  window.addEventListener('load', productCalc);
 };

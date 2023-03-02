@@ -98,4 +98,4 @@ const intro = () => {
  
 };
 
-  window.addEventListener("load", intro);
+window.addEventListener("load", intro);
