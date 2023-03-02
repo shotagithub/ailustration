@@ -1,4 +1,6 @@
 <div class = "main_wrapper">
+
+    <%# 画面上部 %>
     <div class = "main_top">
       <div class = "advertisement">
           広告を設置
@@ -12,7 +14,7 @@
         </div>
       </div>
       <% if params[:keyword].present? %>
-        <div><%= "#{params[:keyword]}の検索結果" %></div>
+        <div class = "keyword"><%= "#{params[:keyword]}の検索結果" %></div>
       <%end%>
       <div class = "select_ber">
         <div class = "select_btn">
@@ -22,16 +24,20 @@
         </div>
       </div>
     </div>
+    <%# メインコンテンツ %>
     <div class = main_center>
-      <ul class = "new_posts">
-            <% @novel.each do |novel| %>
-              <li class = "main_novel">
-                <%= link_to image_tag("book_title.png"),novel_path(novel.id), class: "novel_image" %>
-                <%= link_to novel.title, novel_path(novel.id), class: "new_novel_title" %>
-              </li>
-            <% end %>
+      <div class = "main_contents" >
+        <ul class = "new_posts">
+          <% @novel.each do |novel| %>
+            <li class = "main_novel">
+               <%= link_to image_tag("book_title.png"),novel_path(novel.id), class: "novel_image" %>
+               <%= link_to novel.title, novel_path(novel.id), class: "new_novel_title" %>
+            </li>
+          <% end %>
         </ul>
+      </div>
     </div>
+    <%# ページネーションバー %>
     <div class='pagination'><%= paginate(@novel) %></div>
 </div>
 

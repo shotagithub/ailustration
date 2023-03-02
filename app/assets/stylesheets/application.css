@@ -537,6 +537,10 @@ a {
 
 /* search */
 
+.keyword {
+  text-align: center;
+}
+
 .pagination{
   min-width: 100%;
   display: flex;

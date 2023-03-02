@@ -14,7 +14,7 @@
         </div>
       </div>
       <% if params[:keyword].present? %>
-        <div><%= "#{params[:keyword]}の検索結果" %></div>
+        <div class = "keyword"><%= "#{params[:keyword]}の検索結果" %></div>
       <%end%>
       <div class = "select_ber">
         <div class = "select_btn">
@@ -26,17 +26,20 @@
     </div>
 
     <%# メインコンテンツ %>
-    <div class = main_center>
-      <ul class = "new_posts">
-            <% @illust.each do |illust| %>
-              <li class = main_content>
-                <%= link_to illust_path(illust.id) do %>
-                  <%= image_tag illust.images[0], class: "thumbnail" %><br>
-                 <% end %>
-              </li>
-            <% end %>
-      </ul>
+    <div class = "main_center" >
+      <div class = "main_contents" >
+        <ul class = "new_posts">
+              <% @illust.each do |illust| %>
+                <li class = "main_content" >
+                  <%= link_to illust_path(illust.id) do %>
+                    <%= image_tag illust.images[0], class: "thumbnail" %><br>
+                  <% end %>
+                </li>
+              <% end %>
+        </ul>
+      </div>
     </div>
+    <%# ページネーションバー %>
     <div class='pagination'><%= paginate(@illust) %></div>
 </div>
 
