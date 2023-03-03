@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'illusts#index'
   
+  resources :users, only: [:index, :show]
+
   resources :illusts do
     resources :illust_comments, only: :create
     collection do
