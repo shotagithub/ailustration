@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'illusts#index'
   
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    member do
+      get 'show_all'
+    end
+  end
 
   resources :illusts do
     resources :illust_comments, only: :create
