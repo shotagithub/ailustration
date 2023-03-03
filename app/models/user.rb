@@ -32,9 +32,9 @@ class User < ApplicationRecord
   has_many :novel_comments
   has_many :novel_likes
 
-  has_many :items
-  has_many :item_comments
-  has_many :item_likes
+  has_many :products
+  has_many :product_comments
+  has_many :product_likes
   
   has_many :orders
 

@@ -188,6 +188,8 @@ a {
   opacity: 0.7;
 }
 
+/* index user */
+
 
 /* Index introduce */
 
@@ -345,7 +347,7 @@ a {
 
 .main_novel {
   position: relative;
-  padding: 5px;
+  padding: 5px 15px 5px 15px;
 
 }
 

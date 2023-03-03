@@ -21,7 +21,7 @@
           <%# ログイン時はニックネームを表示 %>
           <% if user_signed_in? %>
             <div class = "nav_center">
-              <%= link_to "#{current_user.nickname}さん", root_path, class: "nickname" %>
+              <%= link_to "#{current_user.nickname}さん", user_path(current_user.id), class: "nickname" %>
             </div>
           <% end %>
 

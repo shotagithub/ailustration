@@ -1,0 +1,30 @@
+<h1><%= "#{@user}さんの投稿一覧" %></h1>
+<ul class = "new_posts">
+  <% @illust.each do |illust| %>
+    <li class = main_content>
+      <%= link_to illust_path(illust.id) do %>
+        <%= image_tag illust.images[0], class: "thumbnail" %><br>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<ul class = "new_posts">
+  <% @novel.each do |novel| %>
+    <li class = "main_novel">
+      <%= link_to image_tag("book_title.png"),novel_path(novel.id), class: "novel_image" %>
+      <%= link_to novel.title, novel_path(novel.id), class: "new_novel_title" %>
+    </li>
+  <% end %>
+</ul>
+<div class='pagination'><%= paginate(@novel) %></div>
+
+<ul class = "new_posts">
+  <% @product.each do |product| %>
+    <li class = main_content>
+      <%= link_to product_path(product.id) do %>
+        <%= image_tag product.images[0], class: "thumbnail" %><br>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
