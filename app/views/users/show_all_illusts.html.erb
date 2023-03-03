@@ -1,0 +1,12 @@
+<h1>illust</h1>
+
+<h1><%= "#{@user}さんのイラスト一覧" %></h1>
+<ul class = "new_posts">
+  <% @illust.each do |illust| %>
+    <li class = main_content>
+      <%= link_to illust_path(illust.id) do %>
+        <%= image_tag illust.images[0], class: "thumbnail" %><br>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,11 @@
+<h1>novel</h1>
+
+<h1><%= "#{@user}さんの小説一覧" %></h1>
+<ul class = "new_posts">
+  <% @novel.each do |novel| %>
+    <li class = "main_novel">
+      <%= link_to image_tag("book_title.png"),novel_path(novel.id), class: "novel_image" %>
+      <%= link_to novel.title, novel_path(novel.id), class: "new_novel_title" %>
+    </li>
+  <% end %>
+</ul>

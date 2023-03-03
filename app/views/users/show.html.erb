@@ -8,7 +8,8 @@
     </li>
   <% end %>
 </ul>
-<%= link_to '全てのイラストを見る', show_all_user_path(current_user.id) %>
+<%= link_to '全てのイラストを見る', show_all_illusts_user_path(current_user.id), name: 'illust' %>
+
 <h1><%= "#{@user}さんの小説一覧" %></h1>
 <ul class = "new_posts">
   <% @novel.each do |novel| %>
@@ -18,7 +19,8 @@
     </li>
   <% end %>
 </ul>
-<%= link_to '全てのイラストを見る', show_all_user_path(current_user.id) %>
+<%= link_to '全ての小説を見る', show_all_novels_user_path(current_user.id) %>
+
 <h1><%= "#{@user}さんの商品一覧" %></h1>
 <ul class = "new_posts">
   <% @product.each do |product| %>
@@ -29,4 +31,4 @@
     </li>
   <% end %>
 </ul>
-<%= link_to '全てのイラストを見る', show_all_user_path(current_user.id) %>
+<%= link_to '全ての商品を見る', show_all_products_user_path(current_user.id) %>

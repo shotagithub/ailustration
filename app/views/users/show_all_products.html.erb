@@ -1,0 +1,12 @@
+<h1>product</h1>
+
+<h1><%= "#{@user}さんの商品一覧" %></h1>
+<ul class = "new_posts">
+  <% @product.each do |product| %>
+    <li class = main_content>
+      <%= link_to product_path(product.id) do %>
+        <%= image_tag product.images[0], class: "thumbnail" %><br>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

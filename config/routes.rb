@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :show] do
     member do
-      get 'show_all'
+      get 'show_all_illusts'
+      get 'show_all_novels'
+      get 'show_all_products'
     end
   end
 
