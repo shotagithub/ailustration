@@ -1,75 +1,75 @@
-<div class='confirmation-wrapper'>
-  <div class = 'confirmation-form'>
-    <%= form_with model: @user, url: registration_path(@user), class: 'registration-main', local: true do |f| %>
+<div class='confirmation_wrapper'>
+  <div class = 'confirmation_form'>
+    <%= form_with model: @user, url: registration_path(@user), class: 'registration_main', local: true do |f| %>
       <%= render "shared/error_messages", model: @user %>
 
-      <div class = "confirmation-group">
-        <div class="confirmation-email">
+      <div class = "confirmation_group">
+        <div class="confirmation_email">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, placeholder: "必須", autofocus: true, autocomplete: "email" %>
         </div>
         
-        <div class="confirmation-pass1">
+        <div class="confirmation_pass1">
           <%= f.label :password, "パスワード" %><br />
           <%= f.password_field :password, placeholder: "必須　英数字6文字以上", id:"user_password",autofocus: true, autocomplete: "new-password" %>
         </div>
 
-        <div class="confirmation-pass2">
+        <div class="confirmation_pass2">
           <%= f.label :password_confirmation, "パスワード再入力" %><br />
           <%= f.password_field :password_confirmation, placeholder: "必須", id:"user_password_confirmation", autocomplete: "new-password" %>
         </div>
 
-        <div class="confirmation-nickname">
+        <div class="confirmation_nickname">
           <%= f.label :nickname, "ニックネーム" %><br />
           <%= f.text_field :nickname, placeholder: "必須　重複不可", id:"nickname" %>
         </div>
       </div>
 
-      <div class = "confirmation-name">
-        <div class="confirmation-last-name">
+      <div class = "confirmation_name">
+        <div class="confirmation_last_name">
           <%= f.label :last_name, "苗字" %><br />
           <%= f.text_field :last_name, placeholder: "必須", id:"last_name" %>
         </div>
 
-        <div class="confirmation-first-name">
+        <div class="confirmation_first_name">
           <%= f.label :first_name, "名前" %><br />
           <%= f.text_field :first_name, placeholder: "必須", id:"first_name" %>
         </div>
       </div>
 
-      <div class = "confirmation-ruby">
-        <div class="confirmation-last-name-ruby">
+      <div class = "confirmation_ruby">
+        <div class="confirmation_last_name_ruby">
           <%= f.label :last_name_ruby, "苗字の読み仮名" %><br />
           <%= f.text_field :last_name_ruby, placeholder: "必須　カタカナ", id:"last_name_ruby" %>
         </div>
 
-        <div class="confirmation-first-name-ruby">
+        <div class="confirmation_first_name_ruby">
           <%= f.label :first_name_ruby, "名前の読み仮名" %><br />
           <%= f.text_field :first_name_ruby, placeholder: "必須　カタカナ", id:"first_name_ruby" %>
         </div>
       </div>
-      <div class = "confirmation-group">
-        <div class="confirmation-birth">
+      <div class = "confirmation_group">
+        <div class="confirmation_birth">
           <%= f.label :birth, "生年月日" %><br />
           <%= f.date_select :birth, use_month_numbers: true, start_year: (Time.now.year - 100),end_year: (Time.now.year), default: Date.new(Time.now.year - 18), id:"birth" %>
         </div>
 
-        <div class="confirmation-prefecture">
+        <div class="confirmation_prefecture">
           <%= f.label :prefecture, "都道府県" %><br />
           <%= f.text_field :prefecture, placeholder: "必須", id:"prefecture" %>
         </div>
 
-        <div class="confirmation-municipality">
+        <div class="confirmation_municipality">
           <%= f.label :municipality, "市区町村" %><br />
           <%= f.text_field :municipality, placeholder: "必須", id:"municipality" %>
         </div>
 
-        <div class="confirmation-address">
+        <div class="confirmation_address">
           <%= f.label :address, "番地" %><br />
           <%= f.text_field :address, placeholder: "必須", id:"address" %>
         </div>
 
-        <div class="confirmation-building">
+        <div class="confirmation_building">
           <%= f.label :building, "建物名" %><br />
           <%= f.text_field :building, id:"building" %>
         </div>

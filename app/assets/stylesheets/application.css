@@ -136,47 +136,47 @@ a {
 
 
 /* devise */
-.confirmation-wrapper {
+.confirmation_wrapper {
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.confirmation-form {
+.confirmation_form {
   text-align: center;
 }
 
-.confirmation-form input {
+.confirmation_form input {
   margin-bottom: 10px;
   text-align: center;
 }
 
-.confirmation-group {
+.confirmation_group {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.confirmation-name {
+.confirmation_name {
   display: flex;
   justify-content: space-between;
 }
 
-.confirmation-last-name input {
+.confirmation_last_name input {
   margin-right: 10px;
 }
 
-.confirmation-ruby {
+.confirmation_ruby {
   display: flex;
   justify-content: space-between;
 }
 
-.confirmation-last-name-ruby input {
+.confirmation_last_name_ruby input {
   margin-right: 10px;
 }
 
-.confirmation-submit {
+.confirmation_submit {
   font-weight: bold;
   letter-spacing: 3px;
   background-color: #e3f4ff;
@@ -184,7 +184,7 @@ a {
   border-color: #87CEFA;
 }
 
-.confirmation-submit:hover{
+.confirmation_submit:hover{
   opacity: 0.7;
 }
 
