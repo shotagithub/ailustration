@@ -46,10 +46,8 @@ class User < ApplicationRecord
     day = ("%02d" % birth.day).to_s
     date_birth = (year + month + day).to_i
     ages = ((Date.today.strftime('%Y%m%d').to_i - date_birth) / 10000).floor
-    if ages >= 18
-      true
-    else
-      errors.add(:age, "18歳未満は登録できません")
+    if ages.present? && ages < 18
+      errors.add(:age, "must be 18 or older")
     end
   end
 end

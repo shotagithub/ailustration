@@ -61,41 +61,7 @@ const intro = () => {
         fill: 'forwards'
       }
     );
-  }, 4000);
-
-// イラストアニメーション
-  addEventListener('scroll', function () {
-    const illust1 = document.getElementById("introduce_illust1")
-    const scroll = window.pageYOffset;
-    if (scroll > 300){
-      illust1.style.opacity = "1";
-    } else {
-      illust1.style.opacity = "0";
-    };
-  });
-
-  addEventListener('scroll', function () {
-    const illust2 = document.getElementById("introduce_illust2")
-    const scroll = window.pageYOffset;
-    if (scroll > 600){
-      illust2.style.opacity = "1";
-    } else {
-      illust2.style.opacity = "0";
-    };
-  });
-
-  addEventListener('scroll', function () {
-    const illust3 = document.getElementById("introduce_illust3")
-    const scroll = window.pageYOffset;
-    if (scroll > 900){
-      illust3.style.opacity = "1";
-    } else {
-      illust3.style.opacity = "0";
-    };
-  });
-  
-  
- 
+  }, 4000); 
 };
 
 window.addEventListener("load", intro);

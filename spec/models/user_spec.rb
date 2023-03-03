@@ -8,7 +8,8 @@ RSpec.describe User, type: :model do
     
     context '新規登録できる場合' do
       it 'email、passwordとpassword_confirmation、nickname、last_name、first_name、last_name_ruby、first_name_ruby、birth、prefecture、municipality、addressが存在すれば登録できる' do 
-        expect(@user).to be_valid
+        expect(user).to be_valid
+        expect(user.errors[:age]).to include('must be 18 or older')
       end
 
       it 'last_nameは漢字、ひらがな、カタカナ、長音記号が登録できる' do
