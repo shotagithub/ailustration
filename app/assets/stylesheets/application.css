@@ -188,8 +188,16 @@ a {
   opacity: 0.7;
 }
 
-/* index user */
-
+/* user show */
+.users_show_title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.to_show_all {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
 
 /* Index introduce */
 

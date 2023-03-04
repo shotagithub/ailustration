@@ -1,16 +1,16 @@
-<h1><%= "#{@user}さんのイラスト一覧" %></h1>
+<h1 class = "users_show_title" ><%= "#{@user}さんのイラスト" %></h1>
 <ul class = "new_posts">
   <% @illust.each do |illust| %>
-    <li class = main_content>
+    <li class = "main_content">
       <%= link_to illust_path(illust.id) do %>
         <%= image_tag illust.images[0], class: "thumbnail" %><br>
       <% end %>
     </li>
   <% end %>
 </ul>
-<%= link_to '全てのイラストを見る', show_all_illusts_user_path(current_user.id), name: 'illust' %>
+<div class = "to_show_all"><%= link_to '全てのイラストを見る', show_all_illusts_user_path(current_user.id), name: 'illust' %></div>
 
-<h1><%= "#{@user}さんの小説一覧" %></h1>
+<h1 class = "users_show_title"><%= "#{@user}さんの小説" %></h1>
 <ul class = "new_posts">
   <% @novel.each do |novel| %>
     <li class = "main_novel">
@@ -19,16 +19,16 @@
     </li>
   <% end %>
 </ul>
-<%= link_to '全ての小説を見る', show_all_novels_user_path(current_user.id) %>
+<div class = "to_show_all"><%= link_to '全ての小説を見る', show_all_novels_user_path(current_user.id) %></div>
 
-<h1><%= "#{@user}さんの商品一覧" %></h1>
+<h1 class = "users_show_title"><%= "#{@user}さんの商品" %></h1>
 <ul class = "new_posts">
   <% @product.each do |product| %>
-    <li class = main_content>
+    <li class = "main_content">
       <%= link_to product_path(product.id) do %>
         <%= image_tag product.images[0], class: "thumbnail" %><br>
       <% end %>
     </li>
   <% end %>
 </ul>
-<%= link_to '全ての商品を見る', show_all_products_user_path(current_user.id) %>
+<div class = "to_show_all"><%= link_to '全ての商品を見る', show_all_products_user_path(current_user.id) %></div>
