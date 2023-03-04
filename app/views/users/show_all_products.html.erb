@@ -1,5 +1,3 @@
-<h1>product</h1>
-
 <h1><%= "#{@user}さんの商品一覧" %></h1>
 <ul class = "new_posts">
   <% @product.each do |product| %>
@@ -10,3 +8,4 @@
     </li>
   <% end %>
 </ul>
+<div class='pagination'><%= paginate(@product) %></div>
