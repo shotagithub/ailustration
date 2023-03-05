@@ -189,6 +189,26 @@ a {
 }
 
 /* user show */
+
+.user_edit_btn {
+  text-align: center;
+  display: inline-block;
+  padding: 4px 16px;
+  font-size: 16px;
+  color: #bd49be;;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #bd49be solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.user_edit_btn :hover {
+  color: #fff;
+  background: #e587fa;
+}
+
+
 .users_show_title {
   text-align: center;
   margin-bottom: 10px;
@@ -198,6 +218,11 @@ a {
   justify-content: center;
   margin-bottom: 40px;
 }
+
+
+/* user edit */
+
+
 
 /* Index introduce */
 

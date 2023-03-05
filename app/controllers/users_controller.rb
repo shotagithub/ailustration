@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :show_all_illusts, :show_all_novels, :show_all_products, :edit, :update]
 
   def show
     user = User.find(params[:id])
@@ -25,5 +26,22 @@ class UsersController < ApplicationController
     @user = user.nickname
     @product = user.products.page(params[:page]).order(created_at: 'desc')
   end
- 
+
+  def edit
+  end
+
+
+  def update
+    if current_user.update(user_params)
+      redirect_to user_path(current_user.id)
+    else
+      render :edit
+    end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:email, :nickname, :prefecture, :municipality, :address, :building)
+  end
+
 end

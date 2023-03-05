@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'illusts#index'
   
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:show, :edit, :update] do
     member do
       get 'show_all_illusts'
       get 'show_all_novels'
