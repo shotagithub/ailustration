@@ -9,6 +9,7 @@ RSpec.describe Product, type: :model do
   describe 'イラストの新規投稿' do
     
     context '新規投稿できる場合' do
+      binding.pry
       it 'images, file, title, description, application, priceが存在すれば登録できる' do
         expect(@product).to be_valid
       end
@@ -34,6 +35,13 @@ RSpec.describe Product, type: :model do
         @product.valid?
         expect(@product.errors.full_messages).to include("File can't be blank")
       end
+
+      it 'fileがzip形式以外では登録できない' do
+        @product.file = fixture_file_upload('app/assets/images/ailus_logo.png')
+        @product.valid?
+        expect(@product.errors.full_messages).to include("File の拡張子が間違っています")
+      end
+      
 
       it 'titleが空では登録できない' do
         @product.title = ""
