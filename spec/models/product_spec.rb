@@ -6,10 +6,9 @@ RSpec.describe Product, type: :model do
     @product = FactoryBot.build(:product)
   end
 
-  describe 'イラストの新規投稿' do
+  describe '商品の新規投稿' do
     
     context '新規投稿できる場合' do
-      binding.pry
       it 'images, file, title, description, application, priceが存在すれば登録できる' do
         expect(@product).to be_valid
       end
@@ -24,56 +23,61 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include('User must exist')
       end
 
-      it 'imagesが空では登録できない' do
+      it 'imagesが空では投稿できない' do
         @product.images = nil
         @product.valid?
         expect(@product.errors.full_messages).to include("Images can't be blank")
       end
 
-      it 'fileが空では登録できない' do
+      it 'imagesがpng,jpg,jpeg形式以外では投稿できない' do
+        @product.images[0] = fixture_file_upload('public/images/test.zip')
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Images の拡張子が間違っています")
+      end
+
+      it 'fileが空では投稿できない' do
         @product.file = nil
         @product.valid?
         expect(@product.errors.full_messages).to include("File can't be blank")
       end
 
-      it 'fileがzip形式以外では登録できない' do
+      it 'fileがzip形式以外では投稿できない' do
         @product.file = fixture_file_upload('app/assets/images/ailus_logo.png')
         @product.valid?
         expect(@product.errors.full_messages).to include("File の拡張子が間違っています")
       end
-      
 
-      it 'titleが空では登録できない' do
+      it 'titleが空では投稿できない' do
         @product.title = ""
         @product.valid?
         expect(@product.errors.full_messages).to include("Title can't be blank")
       end
 
-      it 'descriptionが空では登録できない' do
+      it 'descriptionが空では投稿できない' do
         @product.description = ""
         @product.valid?
         expect(@product.errors.full_messages).to include("Description can't be blank")
       end
 
-      it 'applicationが空では登録できない' do
+      it 'applicationが空では投稿できない' do
         @product.application = ""
         @product.valid?
         expect(@product.errors.full_messages).to include("Application can't be blank")
       end
 
-      it 'priceが空では登録できない' do
+      it 'priceが空では投稿できない' do
         @product.price = nil
         @product.valid?
         expect(@product.errors.full_messages).to include("Price can't be blank")
       end
 
-      it 'priceが100円以下では登録できない' do
+      it 'priceが100円以下では投稿できない' do
         @product.price = 99
         @product.valid?
         expect(@product.errors.full_messages).to include("Price must be greater than or equal to 100")
       end
 
-      it 'priceが100000円以上では登録できない' do
+      it 'priceが100000円以上では投稿できない' do
         @product.price = 100000
         @product.valid?
         expect(@product.errors.full_messages).to include("Price must be less than or equal to 99999")
