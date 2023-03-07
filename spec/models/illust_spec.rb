@@ -34,6 +34,12 @@ RSpec.describe Illust, type: :model do
         expect(@illust.errors.full_messages).to include("Images can't be blank")
       end
 
+      it 'imagesがpng,jpg,jpeg形式以外では投稿できない' do
+        @illust.images[0] = fixture_file_upload('public/images/test.zip')
+        @illust.valid?
+        expect(@illust.errors.full_messages).to include("Images の拡張子が間違っています")
+      end
+
       it 'titleが空では登録できない' do
         @illust.title = ""
         @illust.valid?
