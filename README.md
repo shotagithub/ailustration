@@ -105,6 +105,8 @@ https://docs.google.com/spreadsheets/d/1opleU7nk15x4F8SA540GCDqZ6mvnBzv-dsPZgWEw
 不適切な投稿の通報機能も必要だと考えています。  
 商品の削除に関しては、削除ボタンを押すと管理者に削除要請メールが届く仕様にする必要もあると考えます。  
 ユーザーによる削除を可能にしてしまうと購入者に不利益が生じるためです。
+ユーザーモデルのテストにおいてcustom validationをテストしなければならないので
+mockの作成を検討しています。
 
 ## データベース設計
 [![Image from Gyazo](https://i.gyazo.com/531cfa46bd02eb4845754fc67381a69a.png)](https://gyazo.com/531cfa46bd02eb4845754fc67381a69a)

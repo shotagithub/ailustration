@@ -13,7 +13,7 @@ RSpec.describe Illust, type: :model do
         expect(@illust).to be_valid
       end
 
-      it 'promptが空でも登録できる' do
+      it 'promptが空でも投稿できる' do
         @illust.prompt = ''
         expect(@illust).to be_valid
       end
@@ -28,7 +28,7 @@ RSpec.describe Illust, type: :model do
         expect(@illust.errors.full_messages).to include('User must exist')
       end
 
-      it 'imageが空では登録できない' do
+      it 'imageが空では投稿できない' do
         @illust.images = nil
         @illust.valid?
         expect(@illust.errors.full_messages).to include("Images can't be blank")
@@ -40,19 +40,19 @@ RSpec.describe Illust, type: :model do
         expect(@illust.errors.full_messages).to include("Images の拡張子が間違っています")
       end
 
-      it 'titleが空では登録できない' do
+      it 'titleが空では投稿できない' do
         @illust.title = ""
         @illust.valid?
         expect(@illust.errors.full_messages).to include("Title can't be blank")
       end
 
-      it 'descriptionが空では登録できない' do
+      it 'descriptionが空では投稿できない' do
         @illust.description = ""
         @illust.valid?
         expect(@illust.errors.full_messages).to include("Description can't be blank")
       end
 
-      it 'applicationが空では登録できない' do
+      it 'applicationが空では投稿できない' do
         @illust.application = ""
         @illust.valid?
         expect(@illust.errors.full_messages).to include("Application can't be blank")

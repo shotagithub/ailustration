@@ -14,7 +14,7 @@ RSpec.describe Novel, type: :model do
       end
 
 
-      it 'applicationが空でも登録できる' do
+      it 'applicationが空でも投稿できる' do
         @novel.application = ""
         expect(@novel).to be_valid
       end
@@ -29,13 +29,13 @@ RSpec.describe Novel, type: :model do
         expect(@novel.errors.full_messages).to include('User must exist')
       end
 
-      it 'titleが空では登録できない' do
+      it 'titleが空では投稿できない' do
         @novel.title = ""
         @novel.valid?
         expect(@novel.errors.full_messages).to include("Title can't be blank")
       end
 
-      it 'contentが空では登録できない' do
+      it 'contentが空では投稿できない' do
         @novel.content = ""
         @novel.valid?
         expect(@novel.errors.full_messages).to include("Content can't be blank")
