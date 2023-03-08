@@ -57,17 +57,16 @@ a {
 }
 
 
-/* header */
+/***** header_block *****/
+
+.hidden {
+  display: none;
+}
 
 .header {
   width: 100%;
-  background-color: #cfebff;
   margin-bottom: 20px;
   padding: 15px;
-}
-
-.inner {
-  width: 100%;
 }
 
 .nav {
@@ -77,14 +76,9 @@ a {
   justify-content: space-between;
 }
 
-.logo {
+.nav_center {
   font-size: 20px;
-  font-weight: bold;
-}
-
-.nickname {
-  font-size: 20px;
-  margin-right: 100px;
+  margin-right: 20%;
 }
 
 .nav_btn {
@@ -92,17 +86,10 @@ a {
   display: inline-block;
   padding: 4px 16px;
   font-size: 16px;
-  color: #bd49be;;
   text-decoration: none;
   user-select: none;
-  border: 1px #bd49be solid;
   border-radius: 3px;
   transition: 0.4s ease;
-}
-
-.nav_btn:hover {
-  color: #fff;
-  background: #e587fa;
 }
 
 .nav_lists {
@@ -111,29 +98,37 @@ a {
   text-align: center;
   white-space: nowrap;
   position: absolute;
-  border-color: #bd49be;
+}
+
+/***** body_block *****/
+
+
+
+
+/***** color *****/
+
+.color_purple {
+  color: #bd49be;
+}
+
+/***** back_ground_color *****/
+
+.bg_blue {
   background-color: #cfebff;
 }
 
-.nav_logout {
-  display: inline-block;
-  padding: 4px 16px;
+/***** border_color *****/
+
+.border_purple {
   border: 1px #bd49be solid;
-  font-size: 16px;
-  color: #bd49be;
-  text-decoration: none;
-  user-select: none;
-}
-.nav_logout:hover {
-  opacity: 0.5;
 }
 
-.hidden {
-  display: none;
+/***** hover*****/
+
+.nav_btn:hover {
+  color: #fff;
+  background: #f978fb;
 }
-
-
-
 
 /* devise */
 .confirmation_wrapper {
@@ -190,11 +185,15 @@ a {
 
 /* user show */
 
+.wrapper_center {
+  display: flex;
+  justify-content: center;
+}
+
 .user_edit_btn {
-  text-align: center;
   display: inline-block;
   padding: 4px 16px;
-  font-size: 16px;
+  font-size: 20px;
   color: #bd49be;;
   text-decoration: none;
   user-select: none;

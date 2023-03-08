@@ -10,53 +10,52 @@
   </head>
 
   <body>
-    <header class="header">
-      <div class="inner">
-        <div class="nav">
-          <%# ロゴ %>
-          <div class="nav_left">
-            <%= link_to image_tag("ailus_logo.png"), root_path, class: "logo" %>
-          </div>
-          
-          <%# ログイン時はニックネームを表示 %>
-          <% if user_signed_in? %>
-            <div class = "nav_center">
-              <%= link_to "#{current_user.nickname}さん", user_path(current_user.id), class: "nickname" %>
-            </div>
-          <% end %>
-
-          <%# 新規登録ページにいる%>
-          <% if current_page?("/users/sign_up") %> 
-          <%= link_to "ログイン", new_user_session_path, class: "nav_btn" %>
-
-          <%# ログインページにいる%>
-          <% elsif current_page?("/users/sign_in") %> 
-          <%= link_to "新規登録", new_user_registration_path, class: "nav_btn" %>
-
-          <%# ログイン中 %>
-          <% elsif user_signed_in? %>
-            <div class="nav_right">
-              <li class = "nav_btn" id="navBtn">
-                投稿・出品
-                <ul class="nav_lists hidden" id="navPullDown">
-                  <li><%= link_to "イラストを投稿する", new_illust_path %></li>
-                  <li><%= link_to "小説を投稿する", new_novel_path %></li>
-                  <li><%= link_to "商品を出品する", new_product_path %></li>
-                </ul>
-              </li>
-              <%= link_to "お気に入り", root_path, class: "nav_btn" %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_logout" %>
-            </div>
-
-          <%# ログインしていない %>
-          <% else %>
-            <div class="nav_right">
-              <%= link_to "新規登録", new_user_registration_path, class: "nav_btn" %>
-              <%= link_to "ログイン", new_user_session_path, class: "nav_btn" %>
-            </div>
-          <%# ログイン分岐終了 %>
-          <% end %>
+    <header class = "header bg_blue">
+      <div class = "nav">
+        
+        <%# ロゴ %>
+        <div class = "nav_left">
+          <%= link_to image_tag("ailus_logo.png"), root_path %>
         </div>
+          
+        <%# ログイン時はニックネームを表示 %>
+        <% if user_signed_in? %>
+          <div class = "nav_center">
+            <%= link_to "#{current_user.nickname} さん", user_path(current_user.id) %>
+          </div>
+        <% end %>
+
+        <%# 新規登録ページにいる %>
+        <% if current_page?("/users/sign_up") %> 
+          <%= link_to "ログイン", new_user_session_path, class: "nav_btn color_purple border_purple" %>
+
+        <%# ログインページにいる %>
+        <% elsif current_page?("/users/sign_in") %> 
+          <%= link_to "新規登録", new_user_registration_path, class: "nav_btn color_purple border_purple" %>
+
+        <%# ログイン中 %>
+        <% elsif user_signed_in? %>
+          <div class="nav_right">
+            <li class = "nav_btn color_purple border_purple" id="navBtn">
+              投稿・出品
+              <ul class="nav_lists bg_blue hidden" id="navPullDown">
+                <li><%= link_to "イラストを投稿する", new_illust_path %></li>
+                <li><%= link_to "小説を投稿する", new_novel_path %></li>
+                <li><%= link_to "商品を出品する", new_product_path %></li>
+              </ul>
+            </li>
+            <%= link_to "お気に入り", root_path, class: "nav_btn color_purple border_purple" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_btn color_purple border_purple" %>
+          </div>
+
+        <%# ログインしていない %>
+        <% else %>
+          <div class="nav_right">
+            <%= link_to "新規登録", new_user_registration_path, class: "nav_btn color_purple border_purple" %>
+            <%= link_to "ログイン", new_user_session_path, class: "nav_btn color_purple border_purple" %>
+          </div>
+        <%# ログイン分岐終了 %>
+        <% end %>
       </div>
     </header>
     <%= yield %>
