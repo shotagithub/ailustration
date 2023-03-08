@@ -100,9 +100,12 @@ a {
   position: absolute;
 }
 
-/***** body_block *****/
+/***** main_block *****/
 
-
+.content_center {
+  display: flex;
+  justify-content: center;
+}
 
 
 /***** color *****/
