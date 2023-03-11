@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :novels do
     resources :novel_comments, only: :create
+    resources :novel_likes, only: [:create, :destroy]
     collection do
       get 'search'
     end

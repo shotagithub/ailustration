@@ -8,6 +8,19 @@
     <% end %>
   </div>
 
+  <%# いいねボタン %>
+  <% if @novel.liked?(current_user) %>
+    <%= link_to novel_novel_like_path(@novel.id), method: :delete do %>
+      <span style= "color:red;">❤︎</span>
+    <% end %>
+    <div class = "m_bottom"><%= @like_count %></div>
+  <% else %>
+    <%= link_to novel_novel_likes_path(@novel.id), method: :post do %>
+      <span>❤︎</span>
+    <% end %>
+    <div class = "m_bottom"><%= @like_count %></div>
+  <% end %>
+
   <%# タイトルを表示 %>
   <div class = "posted_title">
     <%= @novel.title%><br>

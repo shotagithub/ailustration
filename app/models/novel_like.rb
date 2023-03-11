@@ -1,0 +1,2 @@
+class NovelLike < ApplicationRecord
+end

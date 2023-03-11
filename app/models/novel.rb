@@ -16,7 +16,10 @@ class Novel < ApplicationRecord
   has_rich_text :content
   belongs_to :user
 
-
+  def liked?(user)
+    novel_likes.where(user_id: user.id).exists?
+  end
+  
   def self.search(search)
     if search != ""
       @novel = Novel.where('title LIKE(?)', "%#{search}%")

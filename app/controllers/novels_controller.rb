@@ -22,6 +22,7 @@ class NovelsController < ApplicationController
   def show
     @comment = NovelComment.new
     @comments = @novel.novel_comments.includes(:user)
+    @like_count = NovelLike.where(novel_id: @novel.id).count
   end
 
   def edit
