@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_25_061653) do
+ActiveRecord::Schema.define(version: 2023_03_11_010103) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2023_02_25_061653) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["illust_id"], name: "index_illust_comments_on_illust_id"
     t.index ["user_id"], name: "index_illust_comments_on_user_id"
+  end
+
+  create_table "illust_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "illust_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["illust_id"], name: "index_illust_likes_on_illust_id"
+    t.index ["user_id"], name: "index_illust_likes_on_user_id"
   end
 
   create_table "illusts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -138,6 +147,8 @@ ActiveRecord::Schema.define(version: 2023_02_25_061653) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "illust_comments", "illusts"
   add_foreign_key "illust_comments", "users"
+  add_foreign_key "illust_likes", "illusts"
+  add_foreign_key "illust_likes", "users"
   add_foreign_key "illusts", "users"
   add_foreign_key "novel_comments", "novels"
   add_foreign_key "novel_comments", "users"

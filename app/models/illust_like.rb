@@ -1,0 +1,2 @@
+class IllustLike < ApplicationRecord
+end
