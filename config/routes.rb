@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :illusts do
     resources :illust_comments, only: :create
+    resources :illust_likes, only: [:create, :destroy]
     collection do
       get 'search'
     end
