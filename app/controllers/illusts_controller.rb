@@ -22,6 +22,7 @@ class IllustsController < ApplicationController
   def show
     @comment = IllustComment.new
     @comments = @illust.illust_comments.includes(:user)
+    @like_count = IllustLike.where(illust_id: @illust.id).count
   end
 
   def edit
