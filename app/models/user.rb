@@ -25,19 +25,19 @@ class User < ApplicationRecord
   validate :age
   
   # Association
-  has_many :illusts
-  has_many :illust_comments
-  has_many :illust_likes
+  has_many :illusts, dependent: :destroy
+  has_many :illust_comments, dependent: :destroy
+  has_many :illust_likes, dependent: :destroy
 
-  has_many :novels
-  has_many :novel_comments
-  has_many :novel_likes
+  has_many :novels, dependent: :destroy
+  has_many :novel_comments, dependent: :destroy
+  has_many :novel_likes, dependent: :destroy
 
-  has_many :products
-  has_many :product_comments
-  has_many :product_likes
+  has_many :products, dependent: :destroy
+  has_many :product_comments, dependent: :destroy
+  has_many :product_likes, dependent: :destroy
   
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
 
   private
