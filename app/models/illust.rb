@@ -19,6 +19,10 @@ class Illust < ApplicationRecord
 
   belongs_to :user
 
+
+  def liked?(user)
+    illust_likes.where(user_id: user.id).exists?
+  end
   private
 
   # 画像の拡張子判定
@@ -41,5 +45,4 @@ class Illust < ApplicationRecord
       @illust = Illust.all
     end
   end
-
 end

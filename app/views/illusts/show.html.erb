@@ -23,6 +23,17 @@
     </div>
   </details>
   <% end %>
+
+  <%# いいねボタン %>
+  <% if @illust.liked?(current_user) %>
+    <%= link_to illust_illust_like_path(@illust.id), method: :delete do %>
+      <span style= "color:red;">❤︎</span>
+    <% end %>
+  <% else %>
+    <%= link_to illust_illust_likes_path(@illust.id), method: :post do %>
+      <span>❤︎</span>
+    <% end %>
+  <% end %>
   <%# タイトルを表示 %>
   <div class = "posted_title">
     <%= @illust.title%><br>
