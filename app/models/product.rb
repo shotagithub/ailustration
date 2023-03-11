@@ -25,6 +25,10 @@ class Product < ApplicationRecord
   
   belongs_to         :user
 
+  def liked?(user)
+    product_likes.where(user_id: user.id).exists?
+  end
+
   private
   # ファイルの拡張子判定
   def file_content_type

@@ -26,6 +26,8 @@ class ProductsController < ApplicationController
 
     @comment = ProductComment.new
     @comments = @product.product_comments.includes(:user)
+
+    @like_count = ProductLike.where(product_id: @product.id).count
   end
 
   def edit

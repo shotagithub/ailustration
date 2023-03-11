@@ -28,7 +28,10 @@ Rails.application.routes.draw do
   
   resources :products do
     resources :product_comments, only: :create
+    resources :product_likes, only: [:create, :destroy]
+
     resources :orders, only: [:index, :create]
+    
     collection do
       get 'search'
     end

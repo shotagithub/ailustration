@@ -1,0 +1,2 @@
+class ProductLike < ApplicationRecord
+end

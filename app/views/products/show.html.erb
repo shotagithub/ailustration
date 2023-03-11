@@ -19,6 +19,20 @@
       </div><br>
     <%end%>
   </li>
+
+  <%# いいねボタン %>
+  <% if @product.liked?(current_user) %>
+    <%= link_to product_product_like_path(@product.id), method: :delete do %>
+      <span style= "color:red;">❤︎</span>
+    <% end %>
+    <div class = "m_bottom"><%= @like_count %></div>
+  <% else %>
+    <%= link_to product_product_likes_path(@product.id), method: :post do %>
+      <span>❤︎</span>
+    <% end %>
+    <div class = "m_bottom"><%= @like_count %></div>
+  <% end %>
+
   <%# 未購入時には購入ボタン、購入者にはダウンロードボタンを表示 %>
   <% if @product.user_id != current_user.id %>
     <% if @order.present? %>
