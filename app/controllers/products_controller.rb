@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     @product = Product.includes(:user).limit(10).order("created_at DESC")
+    @ranking = Product.find(ProductLike.group(:product_id).limit(10).order('count(product_id) desc').pluck(:product_id))
   end
   
   def new

@@ -38,13 +38,14 @@
         ranking
         </div>
         <ul class = "ranking_posts">
-            <% @product.each do |product| %>
-              <li class = main_content>
-                <%= link_to product_path(product.id) do %>
-                  <%= image_tag product.images[0], class: "thumbnail" %><br>
-                <% end %>
-              </li>
-            <% end %>
+          <% @ranking.each.with_index(1) do |rank| %>
+            <li class = main_content>
+              <%= link_to product_path(rank.id) do %>
+                <%= image_tag rank.images[0], class: "thumbnail" %><br>
+                <div class = "illust_likes"><%= "❤︎#{rank.product_likes.count}"%></div>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
