@@ -370,6 +370,8 @@ a {
   display: flex;
   justify-content: center;
   font-size: 30px;
+  font-family: cursive;
+  margin: 10px 0px;
 }
 
 .ranking_posts{
@@ -406,10 +408,6 @@ a {
   border-radius: 50%;
   padding: 5px;
   transform: translate(-50%,-50%);
-}
-
-.rank {
-  
 }
 
 .main_novel {

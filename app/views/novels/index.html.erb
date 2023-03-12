@@ -37,9 +37,13 @@
         ranking
         </div>
         <ul class = "ranking_posts">
-              <li class = main_content>
-                ノベルランキング
-              </li>
+          <% @ranking.each.with_index(1) do |rank| %>
+            <li class = main_novel>
+              <%= link_to image_tag("book_title.png"),novel_path(rank.id), class: "novel_image" %>
+              <%= link_to rank.title, novel_path(rank.id), class: "new_novel_title" %>
+              <%= link_to "❤︎#{rank.novel_likes.count}", novel_path(rank.id), class: "novel_likes"%>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

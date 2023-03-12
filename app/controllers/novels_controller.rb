@@ -4,6 +4,7 @@ class NovelsController < ApplicationController
 
   def index
     @novel = Novel.includes(:user).limit(10).order("created_at DESC")
+    @ranking = Novel.find(NovelLike.group(:novel_id).limit(10).order('count(novel_id) desc').pluck(:novel_id))
   end
   
   def new
