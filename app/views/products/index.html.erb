@@ -29,6 +29,7 @@
                 <li class = main_content>
                   <%= link_to product_path(product.id) do %>
                     <%= image_tag product.images[0], class: "thumbnail" %><br>
+                    <div class = "illust_likes"><%= "❤︎#{product.product_likes.count}"%></div>
                   <% end %>
                 </li>
               <% end %>
