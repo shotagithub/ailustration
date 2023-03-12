@@ -29,6 +29,7 @@
               <li class = "main_novel">
                 <%= link_to image_tag("book_title.png"),novel_path(novel.id), class: "novel_image" %>
                 <%= link_to novel.title, novel_path(novel.id), class: "new_novel_title" %>
+                <%= link_to "❤︎#{novel.novel_likes.count}", novel_path(novel.id), class: "novel_likes"%>
               </li>
             <% end %>
         </ul>

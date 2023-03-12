@@ -31,7 +31,7 @@
                 <li class = main_content>
                   <%= link_to illust_path(illust.id) do %>
                     <%= image_tag illust.images[0], class: "thumbnail" %><br>
-                    <div class = "likes"><%= "❤︎#{illust.illust_likes.count}"%></div>
+                    <div class = "illust_likes"><%= "❤︎#{illust.illust_likes.count}"%></div>
                   <% end %>
                 </li>
               <% end %>

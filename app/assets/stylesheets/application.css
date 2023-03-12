@@ -386,14 +386,26 @@ a {
 }
 
 
-.likes {
+.illust_likes {
   background-color: rgba(1, 1, 1, 0.7);
   color: #ff0000;
   position: absolute;
-  top: 5%;
-  left: 5%;
+  top: 85%;
+  left: 15%;
   border-radius: 50%;
   padding: 5px;
+  transform: translate(-50%,-50%);
+}
+
+.novel_likes {
+  background-color: rgba(1, 1, 1, 0.7);
+  color: #ff0000;
+  position: absolute;
+  top: 85%;
+  left: 20%;
+  border-radius: 50%;
+  padding: 5px;
+  transform: translate(-50%,-50%);
 }
 
 .main_novel {
