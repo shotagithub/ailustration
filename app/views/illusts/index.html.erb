@@ -40,10 +40,12 @@
         ranking
         </div>
         <ul class = "ranking_posts">
-            <% @illust.each do |illust| %>
+            <% @ranking.each.with_index(1) do |rank,i| %>
+            <div class = "rank"><%= "#{i}位" %></div>
               <li class = main_content>
-                <%= link_to illust_path(illust.id) do %>
-                  <%= image_tag illust.images[0], class: "thumbnail" %><br>
+                <%= link_to illust_path(rank.id) do %>
+                  <%= image_tag rank.images[0], class: "thumbnail" %><br>
+                  <div class = "illust_likes"><%= "❤︎#{rank.illust_likes.count}"%></div>
                 <% end %>
               </li>
             <% end %>

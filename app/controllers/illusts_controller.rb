@@ -4,6 +4,7 @@ class IllustsController < ApplicationController
 
   def index
     @illust = Illust.includes(:user).limit(10).order("created_at DESC")
+    @ranking = Illust.find(IllustLike.group(:illust_id).limit(10).order('count(illust_id) desc').pluck(:illust_id))
   end
   
   def new
