@@ -30,6 +30,7 @@
 - has_many :product_comments
 - has_many :product_likes
 - has_many :orders
+- has_one  :carts
 
 
 
@@ -237,3 +238,13 @@
 
 belongs_to :user
 belongs_to :product
+
+
+## cartsテーブル
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| user                 | references | null: false, foreign_key: true |
+
+###　Association
+
+- belongs_to :user
