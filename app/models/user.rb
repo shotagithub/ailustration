@@ -38,6 +38,8 @@ class User < ApplicationRecord
   has_many :product_likes, dependent: :destroy
   
   has_many :orders, dependent: :destroy
+  
+  has_one  :cart
 
 
   private

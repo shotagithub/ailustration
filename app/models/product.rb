@@ -24,6 +24,7 @@ class Product < ApplicationRecord
   has_one_attached   :file
   
   belongs_to         :user
+  belongs_to         :cart
 
   def liked?(user)
     product_likes.where(user_id: user.id).exists?
