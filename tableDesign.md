@@ -181,6 +181,7 @@
 - has_many_attached :images
 - has_one :order
 - belongs_to :user
+- belongs_to :cart
 
 
 
@@ -248,3 +249,4 @@ belongs_to :product
 ###　Association
 
 - belongs_to :user
+- has_many   :products
